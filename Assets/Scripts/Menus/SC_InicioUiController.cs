@@ -13,6 +13,12 @@ namespace AL.UI
           [SerializeField] private Button _loadLevel;
           [Header("Panels")]
           [SerializeField] private GameObject _panelAnimation;
+          [Header("Setting")]
+          [SerializeField] private Image _brightness;
+          [SerializeField] private AudioSource _music;
+           private bool _endSettingCorrutine;
+          // Main Tools
+           [SerializeField] private SC_DatosJugador _dataPlayer;
           #endregion
     
           #region UnityCalls
@@ -20,12 +26,14 @@ namespace AL.UI
           void Start()
           {
               _loadLevel.onClick.AddListener(ActiveAnimation);
+              StartCoroutine(nameof(CorrutineSettings));
+              FrameRate();
           }
 
           // Update is called once per frame
-          void Update()
+          private void OnDestroy()
           {
-        
+                _endSettingCorrutine = true;
           }
           #endregion 
     
@@ -39,7 +47,26 @@ namespace AL.UI
           {
               SceneManager.LoadScene(1);
           }
+          IEnumerator CorrutineSettings()
+          {
+                while(!_endSettingCorrutine)
+                {
+                  ControlSettings();
+                  yield return null;
+                }
+          }
+          private void ControlSettings()
+          {
+              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
+              _music.volume = _dataPlayer.m_volumenMusica;
+          }          
+          private void FrameRate()
+          {
+              if (60 != Application.targetFrameRate)
+              {
+                   Application.targetFrameRate = 60;
+              }
+          }
           #endregion
-
     }
 }
