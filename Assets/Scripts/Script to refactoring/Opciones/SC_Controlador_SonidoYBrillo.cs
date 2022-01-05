@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using AL.Data;
 
 public class SC_Controlador_SonidoYBrillo : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class SC_Controlador_SonidoYBrillo : MonoBehaviour {
   //esta script es para controlar las opciones del brillo y del sonido. Haciendo que se guarde los datos en unas scritp que no se autodestuira y
   //pasara la informacion al lector de las opciones
   [HideInInspector]
-  public SC_DatosJugador SC_D; 
+  public SC_DataPlayerPersisten SC_D; 
 
   public Slider m_Slider_Brillo;
   public Slider m_Slider_Musica_Ambiente;
@@ -37,7 +38,7 @@ public class SC_Controlador_SonidoYBrillo : MonoBehaviour {
 
     if (SC_D == null)
     {
-      SC_D = FindObjectOfType<SC_DatosJugador>();
+      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
     }
 
   }

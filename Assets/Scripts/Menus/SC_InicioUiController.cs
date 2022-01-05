@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using AL.Data;
 
 namespace AL.UI
 {
@@ -18,7 +18,7 @@ namespace AL.UI
           [SerializeField] private AudioSource _music;
            private bool _endSettingCorrutine;
           // Main Tools
-           [SerializeField] private SC_DatosJugador _dataPlayer;
+           [SerializeField] private SC_DataPlayerPersisten _dataPlayer;
           #endregion
     
           #region UnityCalls
@@ -62,7 +62,7 @@ namespace AL.UI
           }          
           private void FrameRate()
           {
-              if (60 != Application.targetFrameRate)
+              if (Application.targetFrameRate != 60)
               {
                    Application.targetFrameRate = 60;
               }

@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using AL.Data;
 public class SC_RetoActivo : MonoBehaviour
 {
   //esta scritp es para activar el reto del dlc cuando el jugador colisione con el trigger, donde previamente se elegira de forma random un reto
@@ -10,7 +8,7 @@ public class SC_RetoActivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    SC_DJ = FindObjectOfType<SC_DatosJugador>();
+    SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
     }
 
     // Update is called once per frame
@@ -78,7 +76,7 @@ public class SC_RetoActivo : MonoBehaviour
 
   //esta funcion es para poder
   public GameObject m_jugador;
-  private SC_DatosJugador SC_DJ;
+  private SC_DataPlayerPersisten SC_DJ;
   public GameObject m_dialogo;
   public GameObject m_dialogo1;
   public void HasPerdido()

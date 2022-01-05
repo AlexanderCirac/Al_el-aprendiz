@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using AL.Data;
 public class SC_DesbloquearNivel : MonoBehaviour
 {
   //esto lo que ara es sumar el nivel del juego para que cuando vayas al mapa de niveles puedas ir al correspondiente
   [HideInInspector]
-  public SC_DatosJugador SC_D;
+  public SC_DataPlayerPersisten SC_D;
 
   public int m_nivelAcutal;
   
@@ -29,7 +27,7 @@ public class SC_DesbloquearNivel : MonoBehaviour
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_D == null)
     {
-      SC_D = FindObjectOfType<SC_DatosJugador>();
+      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
     }
   }
 

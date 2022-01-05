@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
-
+using AL.Data;
 public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
 
 
   // en esta script leeremos los datos.
   //[HideInInspector]
-  public SC_DatosJugador SC_D;
+  public SC_DataPlayerPersisten SC_D;
 
   public Image m_Brillo;
 
@@ -37,7 +35,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_D == null)
     { 
-      SC_D = FindObjectOfType<SC_DatosJugador>();
+      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
     }
   }
 

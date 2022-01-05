@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using AL.Data;
 public class SC_ActivarNiveles : MonoBehaviour
 {
   //esta script es para desbloquear las misiones siguientes una
   //vez que se ayan pasado el nivel anterior
 
-  public SC_DatosJugador SC_DJ;
+  public SC_DataPlayerPersisten SC_DJ;
 
   public int m_NivelDesbloquear;
   private bool m_DoOnce = false;
@@ -58,7 +56,7 @@ public class SC_ActivarNiveles : MonoBehaviour
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_DJ == null)
     {
-      SC_DJ = FindObjectOfType<SC_DatosJugador>();
+      SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
     }
   }
 }

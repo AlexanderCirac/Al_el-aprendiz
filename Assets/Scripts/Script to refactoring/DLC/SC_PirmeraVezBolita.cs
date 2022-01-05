@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using AL.Data;
 public class SC_PirmeraVezBolita : MonoBehaviour
 {
-  public SC_DatosJugador SC_DJ;
+  public SC_DataPlayerPersisten SC_DJ;
   //esta script es para que salga solo 1 vez el anuncio 
 
 
@@ -31,7 +29,7 @@ public class SC_PirmeraVezBolita : MonoBehaviour
     }
     else
     {
-      SC_DJ = FindObjectOfType<SC_DatosJugador>();
+      SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
     }
   }
 

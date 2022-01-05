@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEditor;
+﻿using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using AL.Data;
 public class SC_GuardarYCargarJugador : MonoBehaviour
 {
 
@@ -12,21 +9,22 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
   public string m_nombrePersistente;
   [Header("Scriptable Object")]
   public SC_Scriptable m_objetoPersistente;
-  public SC_DatosJugador m_Datos;
+  public SC_DataPlayerPersisten m_Datos;
 
 
   public bool m_1;
   private bool m_2;
+
   // Start is called before the first frame update
   void Start()
   {
+    m_Datos = SC_DataPlayerPersisten._instanceData;
    
   }
 
   private void Update()
   {
-    cargarScript();
-   if (m_Datos != null) {
+    if (m_Datos != null) {
     cargadoauto();
     }
   }
@@ -55,7 +53,7 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
       m_Datos.m_nivel = m_objetoPersistente.m_nivel;
       m_Datos.m_Numero_Brillo = m_objetoPersistente.m_nivellBrillo;
       m_Datos.m_volumenMusica = m_objetoPersistente.m_volumenMusica;
-      m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
+      //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
       m_Datos.m_Zurdo = m_objetoPersistente.m_Zurdo;
       m_Datos.m_Anuncio = m_objetoPersistente.m_Anuncio;
       m_Datos.m_primeravezBolita = m_objetoPersistente.m_primeravezBolita;
@@ -70,7 +68,7 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
     m_objetoPersistente.m_nivel = m_Datos.m_nivel;
     m_objetoPersistente.m_nivellBrillo = m_Datos.m_Numero_Brillo;
     m_objetoPersistente.m_volumenMusica = m_Datos.m_volumenMusica;
-    m_objetoPersistente.m_ID_Grafico = m_Datos.m_ID_Grafico;
+    //m_objetoPersistente.m_ID_Grafico = m_Datos.m_ID_Grafico;
     m_objetoPersistente.m_Zurdo = m_Datos.m_Zurdo;
     m_objetoPersistente.m_Anuncio = m_Datos.m_Anuncio;
     m_objetoPersistente.m_primeravezBolita = m_Datos.m_primeravezBolita;
@@ -96,18 +94,11 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
    m_Datos.m_nivel = m_objetoPersistente.m_nivel;
     m_Datos.m_Numero_Brillo = m_objetoPersistente.m_nivellBrillo;
     m_Datos.m_volumenMusica = m_objetoPersistente.m_volumenMusica;
-    m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
+    //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
     m_Datos.m_Zurdo = m_objetoPersistente.m_Zurdo;
 
   }
 
-  void cargarScript()
-  {
-    if (m_Datos == null)
-    {
-      m_Datos = FindObjectOfType<SC_DatosJugador>();
-    }
-  }
 
   public void BorrarDatosNivel()
   {

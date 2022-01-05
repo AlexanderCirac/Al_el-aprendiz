@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using AL.Data;
 public class SC_Controlador_Graficos : MonoBehaviour
 {
   [HideInInspector]
-  public SC_DatosJugador SC_D;
+  public SC_DataPlayerPersisten SC_D;
 
  
   
@@ -27,19 +25,19 @@ public class SC_Controlador_Graficos : MonoBehaviour
     if (SC_D == null)
     {
 
-      SC_D = FindObjectOfType<SC_DatosJugador>();
+      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
     }
   }
 
-  public void bajo()
-  {
-    SC_D.m_ID_Grafico = 0;
-  }
+  //public void bajo()
+  //{
+  //  SC_D.m_ID_Grafico = 0;
+  //}
 
-  public void Normal()
-  {
-    SC_D.m_ID_Grafico = 2;
-  }
+  //public void Normal()
+  //{
+  //  SC_D.m_ID_Grafico = 2;
+  //}
 
   
 }
