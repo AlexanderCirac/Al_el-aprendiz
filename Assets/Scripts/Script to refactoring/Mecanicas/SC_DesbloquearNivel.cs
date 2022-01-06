@@ -4,7 +4,7 @@ public class SC_DesbloquearNivel : MonoBehaviour
 {
   //esto lo que ara es sumar el nivel del juego para que cuando vayas al mapa de niveles puedas ir al correspondiente
   [HideInInspector]
-  public SC_DataPlayerPersisten SC_D;
+  public SC_SettingsDataPersisten SC_D;
 
   public int m_nivelAcutal;
   
@@ -16,9 +16,9 @@ public class SC_DesbloquearNivel : MonoBehaviour
 
   public void CondicionVictoria()
   {
-    if (m_nivelAcutal > SC_D.m_nivel)
+    if (m_nivelAcutal > SC_D._levelCurrentSave)
     {
-      SC_D.m_nivel++;
+      SC_D._levelCurrentSave++;
     }
    // Application.LoadLevel(2);
   }
@@ -27,7 +27,7 @@ public class SC_DesbloquearNivel : MonoBehaviour
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_D == null)
     {
-      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 

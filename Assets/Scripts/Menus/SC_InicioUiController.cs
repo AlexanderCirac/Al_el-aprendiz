@@ -18,7 +18,7 @@ namespace AL.UI
           [SerializeField] private AudioSource _music;
            private bool _endSettingCorrutine;
           // Main Tools
-           [SerializeField] private SC_DataPlayerPersisten _dataPlayer;
+           [SerializeField] private SC_SettingsDataPersisten _dataPlayer;
           #endregion
     
           #region UnityCalls
@@ -57,8 +57,8 @@ namespace AL.UI
           }
           private void ControlSettings()
           {
-              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
-              _music.volume = _dataPlayer.m_volumenMusica;
+              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
+              _music.volume = _dataPlayer._valuenMusica;
           }          
           private void FrameRate()
           {

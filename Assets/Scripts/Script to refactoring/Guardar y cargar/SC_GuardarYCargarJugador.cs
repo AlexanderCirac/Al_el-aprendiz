@@ -8,8 +8,8 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
   [Header("Nombre Scriptable")]
   public string m_nombrePersistente;
   [Header("Scriptable Object")]
-  public SC_Scriptable m_objetoPersistente;
-  public SC_DataPlayerPersisten m_Datos;
+  public SC_SaveData m_objetoPersistente;
+  public SC_SettingsDataPersisten m_Datos;
 
 
   public bool m_1;
@@ -18,7 +18,7 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    m_Datos = SC_DataPlayerPersisten._instanceData;
+    m_Datos = SC_SettingsDataPersisten._instanceData;
    
   }
 
@@ -50,13 +50,13 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
         bf.Serialize(file, json);
         file.Close();
       }
-      m_Datos.m_nivel = m_objetoPersistente.m_nivel;
-      m_Datos.m_Numero_Brillo = m_objetoPersistente.m_nivellBrillo;
-      m_Datos.m_volumenMusica = m_objetoPersistente.m_volumenMusica;
+      m_Datos._levelCurrentSave = m_objetoPersistente._savedLevel;
+      m_Datos._valueBrightness = m_objetoPersistente._saveValueBrighnesst;
+      m_Datos._valuenMusica = m_objetoPersistente._saveValueMusic;
       //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
-      m_Datos.m_Zurdo = m_objetoPersistente.m_Zurdo;
-      m_Datos.m_Anuncio = m_objetoPersistente.m_Anuncio;
-      m_Datos.m_primeravezBolita = m_objetoPersistente.m_primeravezBolita;
+      m_Datos._handLeft = m_objetoPersistente._saveHandLeft;
+      m_Datos._ad = m_objetoPersistente._saveAd;
+      m_Datos._firstDLC = m_objetoPersistente._saveFirstDLC;
       m_1 = true;
     }
    
@@ -65,13 +65,13 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
   public void GuardarOpciones()
   {
  
-    m_objetoPersistente.m_nivel = m_Datos.m_nivel;
-    m_objetoPersistente.m_nivellBrillo = m_Datos.m_Numero_Brillo;
-    m_objetoPersistente.m_volumenMusica = m_Datos.m_volumenMusica;
+    m_objetoPersistente._savedLevel = m_Datos._levelCurrentSave;
+    m_objetoPersistente._saveValueBrighnesst = m_Datos._valueBrightness;
+    m_objetoPersistente._saveValueMusic = m_Datos._valuenMusica;
     //m_objetoPersistente.m_ID_Grafico = m_Datos.m_ID_Grafico;
-    m_objetoPersistente.m_Zurdo = m_Datos.m_Zurdo;
-    m_objetoPersistente.m_Anuncio = m_Datos.m_Anuncio;
-    m_objetoPersistente.m_primeravezBolita = m_Datos.m_primeravezBolita;
+    m_objetoPersistente._saveHandLeft = m_Datos._handLeft;
+    m_objetoPersistente._saveAd = m_Datos._ad;
+    m_objetoPersistente._saveFirstDLC = m_Datos._firstDLC;
 
     BinaryFormatter bf = new BinaryFormatter();
     FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", m_nombrePersistente));
@@ -91,21 +91,21 @@ public class SC_GuardarYCargarJugador : MonoBehaviour
       JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), m_objetoPersistente);
       file.Close();
     }
-   m_Datos.m_nivel = m_objetoPersistente.m_nivel;
-    m_Datos.m_Numero_Brillo = m_objetoPersistente.m_nivellBrillo;
-    m_Datos.m_volumenMusica = m_objetoPersistente.m_volumenMusica;
+   m_Datos._levelCurrentSave = m_objetoPersistente._savedLevel;
+    m_Datos._valueBrightness = m_objetoPersistente._saveValueBrighnesst;
+    m_Datos._valuenMusica = m_objetoPersistente._saveValueMusic;
     //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
-    m_Datos.m_Zurdo = m_objetoPersistente.m_Zurdo;
+    m_Datos._handLeft = m_objetoPersistente._saveHandLeft;
 
   }
 
 
   public void BorrarDatosNivel()
   {
-    m_objetoPersistente.m_nivel = 0;
-    m_Datos.m_nivel = 0;
-    m_objetoPersistente.m_Anuncio = false;
-    m_objetoPersistente.m_primeravezBolita = false;
+    m_objetoPersistente._savedLevel = 0;
+    m_Datos._levelCurrentSave = 0;
+    m_objetoPersistente._saveAd = false;
+    m_objetoPersistente._saveFirstDLC = false;
     BinaryFormatter bf = new BinaryFormatter();
     FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", m_nombrePersistente));
     var json = JsonUtility.ToJson(m_objetoPersistente);

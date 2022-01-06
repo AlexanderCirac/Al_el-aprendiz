@@ -2,7 +2,7 @@
 using AL.Data;
 public class SC_PirmeraVezBolita : MonoBehaviour
 {
-  public SC_DataPlayerPersisten SC_DJ;
+  public SC_SettingsDataPersisten SC_DJ;
   //esta script es para que salga solo 1 vez el anuncio 
 
 
@@ -18,7 +18,7 @@ public class SC_PirmeraVezBolita : MonoBehaviour
   {
     if (SC_DJ != null)
     {
-      if (!SC_DJ.m_primeravezBolita)
+      if (!SC_DJ._firstDLC)
       {
         m_anuncio.SetActive(true);
       }
@@ -29,12 +29,12 @@ public class SC_PirmeraVezBolita : MonoBehaviour
     }
     else
     {
-      SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_DJ = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 
   public void DesactivarAnuncio()
   {
-    SC_DJ.m_primeravezBolita = true;
+    SC_DJ._firstDLC = true;
   }
 }

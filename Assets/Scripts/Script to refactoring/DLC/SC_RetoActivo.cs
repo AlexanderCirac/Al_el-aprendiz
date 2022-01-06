@@ -8,7 +8,7 @@ public class SC_RetoActivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
+    SC_DJ = FindObjectOfType<SC_SettingsDataPersisten>();
     }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class SC_RetoActivo : MonoBehaviour
 
   //esta funcion es para poder
   public GameObject m_jugador;
-  private SC_DataPlayerPersisten SC_DJ;
+  private SC_SettingsDataPersisten SC_DJ;
   public GameObject m_dialogo;
   public GameObject m_dialogo1;
   public void HasPerdido()

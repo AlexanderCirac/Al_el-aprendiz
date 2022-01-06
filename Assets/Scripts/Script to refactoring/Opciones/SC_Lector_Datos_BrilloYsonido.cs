@@ -6,7 +6,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
 
   // en esta script leeremos los datos.
   //[HideInInspector]
-  public SC_DataPlayerPersisten SC_D;
+  public SC_SettingsDataPersisten SC_D;
 
   public Image m_Brillo;
 
@@ -35,7 +35,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_D == null)
     { 
-      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 
@@ -43,7 +43,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
   {
     //Cogera los datos almacenados y los aplicara al brillo
     if (SC_D != null) {
-      m_Brillo.color = new Color(m_Brillo.color.r, m_Brillo.color.g, m_Brillo.color.b, SC_D.m_Numero_Brillo - 0.1f);
+      m_Brillo.color = new Color(m_Brillo.color.r, m_Brillo.color.g, m_Brillo.color.b, SC_D._valueBrightness - 0.1f);
     }
   }
 
@@ -52,7 +52,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
     //Cogera los datos almacenados y los aplicara al volumen
     if (SC_D != null)
     {
-      m_musica.volume = SC_D.m_volumenMusica;
+      m_musica.volume = SC_D._valuenMusica;
     }
   }
 
@@ -64,7 +64,7 @@ public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
     {
       if ( m_zurdo != null && m_numero == 0)
       {
-        m_zurdo.isOn = SC_D.m_Zurdo;
+        m_zurdo.isOn = SC_D._handLeft;
         m_numero = 1;
       }
     }

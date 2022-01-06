@@ -3,7 +3,7 @@ using AL.Data;
 public class SC_Controlador_Graficos : MonoBehaviour
 {
   [HideInInspector]
-  public SC_DataPlayerPersisten SC_D;
+  public SC_SettingsDataPersisten SC_D;
 
  
   
@@ -25,7 +25,7 @@ public class SC_Controlador_Graficos : MonoBehaviour
     if (SC_D == null)
     {
 
-      SC_D = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 

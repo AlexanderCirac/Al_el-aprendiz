@@ -2,7 +2,7 @@
 using AL.Data;
 public class SC_Anuncio : MonoBehaviour
 {
-  public SC_DataPlayerPersisten SC_DJ;
+  public SC_SettingsDataPersisten SC_DJ;
   //esta script es para que salga solo 1 vez el anuncio 
 
   private void Awake()
@@ -26,7 +26,7 @@ public class SC_Anuncio : MonoBehaviour
   {
     if (SC_DJ != null)
     {
-      if (!SC_DJ.m_Anuncio)
+      if (!SC_DJ._ad)
       {
         m_anuncio.SetActive(true);
       }
@@ -37,12 +37,12 @@ public class SC_Anuncio : MonoBehaviour
     }
     else
     {
-      SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_DJ = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 
   public void DesactivarAnuncio()
   {
-    SC_DJ.m_Anuncio = true;
+    SC_DJ._ad = true;
   }
 }

@@ -5,7 +5,7 @@ public class SC_ActivarNiveles : MonoBehaviour
   //esta script es para desbloquear las misiones siguientes una
   //vez que se ayan pasado el nivel anterior
 
-  public SC_DataPlayerPersisten SC_DJ;
+  public SC_SettingsDataPersisten SC_DJ;
 
   public int m_NivelDesbloquear;
   private bool m_DoOnce = false;
@@ -33,13 +33,13 @@ public class SC_ActivarNiveles : MonoBehaviour
 
   void ActivarNiveles()
   {
-    if (SC_DJ.m_nivel == 0)
+    if (SC_DJ._levelCurrentSave == 0)
     {
       m_NivelDesbloquear = 0;
     }
     else
     {
-      m_NivelDesbloquear = SC_DJ.m_nivel;
+      m_NivelDesbloquear = SC_DJ._levelCurrentSave;
     }
 
     if (m_DoOnce == false)
@@ -56,7 +56,7 @@ public class SC_ActivarNiveles : MonoBehaviour
   {//cargara en una variable publica la script que almacena todos los datos
     if (SC_DJ == null)
     {
-      SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
+      SC_DJ = FindObjectOfType<SC_SettingsDataPersisten>();
     }
   }
 }

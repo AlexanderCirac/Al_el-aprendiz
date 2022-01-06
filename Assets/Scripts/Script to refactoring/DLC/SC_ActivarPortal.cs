@@ -3,11 +3,11 @@ using AL.Data;
 
 public class SC_ActivarPortal : MonoBehaviour
 {
-  public SC_DataPlayerPersisten SC_DJ;
+  public SC_SettingsDataPersisten SC_DJ;
     // Start is called before the first frame update
     void Start()
     {
-    SC_DJ = FindObjectOfType<SC_DataPlayerPersisten>();
+    SC_DJ = FindObjectOfType<SC_SettingsDataPersisten>();
   }
 
     // Update is called once per frame
