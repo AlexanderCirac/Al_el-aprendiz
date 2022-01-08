@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class SC_MainMenuUIController : MonoBehaviour
+namespace AL.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SC_MainMenuUIController : MonoBehaviour
     {
-        
+         #region Attributes
+          [Header("Buttons")]
+          [SerializeField]private Button _buttonQuit;
+          [SerializeField]private Button _buttonPlay;
+          #endregion
+
+          #region UnityCalls
+          private void Start()
+          {   
+              //Start game
+              Time.timeScale = 1;
+
+              // Button OnClick
+              _buttonQuit.onClick.AddListener(() => Application.Quit());
+              _buttonPlay.onClick.AddListener(() => SceneManager.LoadScene(2));
+          }
+          #endregion  
+    
+          #region Methods
+          #endregion
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
