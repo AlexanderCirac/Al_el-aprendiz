@@ -13,12 +13,16 @@ namespace AL.Data
           [Header("Scriptable Object")]
           [SerializeField] private SC_SaveData _playerData;
           [SerializeField] private SC_SettingsDataPersisten _settingsData;
+          #endregion          
+          #region Singlenton
+          public static SC_SaveAndLoadPlayerData _instance;
           #endregion
 
           #region UnityCalls
           private void Awake()
           {
               _settingsData = SC_SettingsDataPersisten._instanceData;
+              _instance = this;
           }
           // Start is called before the first frame update
           void Start()
