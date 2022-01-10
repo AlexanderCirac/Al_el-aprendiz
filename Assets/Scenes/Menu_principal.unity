@@ -574,31 +574,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 37563680}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DesactivarAnuncio
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1011201321}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: GuardarOpciones
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &37563680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,7 +1593,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1011201323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CambiarPaginaAlante
         m_Mode: 1
@@ -2246,7 +2222,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1011201323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CambiarPaginaAtras
         m_Mode: 1
@@ -2646,7 +2622,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1011201325}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Salir
         m_Mode: 1
@@ -3262,7 +3238,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1011201325}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: NivelEleccion
         m_Mode: 3
@@ -3424,10 +3400,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d62a49793aea49a20bf73dd288ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonQuit: {fileID: 0}
-  _buttonPlay: {fileID: 0}
-  _buttonDLC: {fileID: 0}
-  _panelDLC: {fileID: 0}
+  _buttonQuit: {fileID: 375891486}
+  _buttonPlay: {fileID: 1057483601}
+  _buttonDLC: {fileID: 37563679}
+  _buttonsReturnMenu: []
+  _buttonOptions: {fileID: 0}
+  _buttonCredits: {fileID: 0}
+  _panelDLC: {fileID: 1180095476}
+  _panelMenu: {fileID: 0}
+  _panelOptions: {fileID: 0}
+  _panelCredits: {fileID: 0}
 --- !u!4 &557444090
 Transform:
   m_ObjectHideFlags: 0
@@ -4227,7 +4209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1011201325}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ActivarSalir
         m_Mode: 1
@@ -5194,11 +5176,7 @@ GameObject:
   - component: {fileID: 1011201316}
   - component: {fileID: 1011201318}
   - component: {fileID: 1011201317}
-  - component: {fileID: 1011201319}
   - component: {fileID: 1011201321}
-  - component: {fileID: 1011201323}
-  - component: {fileID: 1011201324}
-  - component: {fileID: 1011201325}
   m_Layer: 0
   m_Name: ControladorGeneral
   m_TagString: Untagged
@@ -5250,23 +5228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelOpciones: {fileID: 1750889984}
   m_PanelCreditos: {fileID: 1071773243}
---- !u!114 &1011201319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011201315}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6751cb1dac0b744819b000eec815e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SC_D: {fileID: 0}
-  m_Brillo: {fileID: 1271401861}
-  m_musica: {fileID: 0}
-  m_zurdo: {fileID: 1344408980}
-  m_numero: 0
 --- !u!114 &1011201321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5282,47 +5243,6 @@ MonoBehaviour:
   _nameOfPlayerData: 
   _playerData: {fileID: 11400000, guid: 17112acb3cbd1c440887b49d5eadac10, type: 2}
   _settingsData: {fileID: 0}
---- !u!114 &1011201323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011201315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252cea98fbec2f943adc9ed4406b3c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AnimacionAlante: {fileID: 425343059}
-  m_AnimacionAtras: {fileID: 1523951105}
-  m_Fondo_Normal: {fileID: 1111820961}
---- !u!114 &1011201324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011201315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5d586bac2774943841b6e0c218100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: 60
---- !u!114 &1011201325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011201315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe69776c6230514da2df22eef6dc857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mesanje: {fileID: 1906545305}
 --- !u!1 &1026528232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5493,7 +5413,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1011201323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CambiarPaginaAtras
         m_Mode: 1
@@ -6736,7 +6656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1011201325}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: DesactivarSalir
         m_Mode: 1
@@ -9253,7 +9173,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1011201323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CambiarPaginaAtras
         m_Mode: 1
@@ -11140,7 +11060,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1011201323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CambiarPaginaAlante
         m_Mode: 1
