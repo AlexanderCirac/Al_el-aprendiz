@@ -26,13 +26,15 @@ namespace AL.UI
           [SerializeField] private GameObject _panelMenu;
           [SerializeField] private GameObject _panelOptions;
           [SerializeField] private GameObject _panelCredits;
+          [SerializeField] private GameObject _panelAnimationForward;
+          [SerializeField] private GameObject _panelAnimationBack;
           #endregion
 
           #region UnityCalls
           private void Awake()
           {
-              if(SC_SettingsDataPersisten._instanceData._firstDLC)
-                    _panelDLC.SetActive(false);
+              //if(SC_SettingsDataPersisten._instanceData._firstDLC)
+              //      _panelDLC.SetActive(false);
           }
           private void Start()
           {   
@@ -42,10 +44,9 @@ namespace AL.UI
               // Button OnClick
               _buttonQuit.onClick.AddListener(() => Application.Quit());
               _buttonPlay.onClick.AddListener(() => SceneManager.LoadScene(2));
-              _buttonPlay.onClick.AddListener(() => SceneManager.LoadScene(2));
-              for (int i = 0; i <= _buttonsReturnMenu.Length; i++)
+              for (int i = 1; i <= _buttonsReturnMenu.Length; i++)
               {
-                  _buttonsReturnMenu[i]._buttons.onClick.AddListener(() => StartCoroutine(DesactivatePanel()));
+                  _buttonsReturnMenu[i-1]._buttons.onClick.AddListener(() => StartCoroutine(DesactivatePanel()));
               }
               _buttonOptions.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_panelOptions)));
               _buttonCredits.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_panelCredits)));
@@ -62,15 +63,20 @@ namespace AL.UI
           }          
           IEnumerator ActivatePanelAnimation( GameObject _panel)
           {
-             yield return new WaitForSeconds(.45f);
-                _panel.SetActive(true);
+              _panelMenu.SetActive(false);
+              _panelAnimationForward.SetActive(true);
+              yield return new WaitForSeconds(.45f);
+              _panelAnimationForward.SetActive(false);
+              _panel.SetActive(true);
           }          
           IEnumerator DesactivatePanel()
           {
-                _panelOptions.SetActive(false);
-                _panelCredits.SetActive(false);
+             _panelOptions.SetActive(false);
+             _panelCredits.SetActive(false);
+             _panelAnimationBack.SetActive(true);
              yield return new WaitForSeconds(.45f);
-                _panelMenu.SetActive(true);
+             _panelAnimationBack.SetActive(true);
+             _panelMenu.SetActive(true);
           }
           #endregion
     }
