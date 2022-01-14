@@ -1,7 +1,8 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using AL.UI.Settings;
+using AL.Data;
 
 namespace AL.UI
 {
@@ -23,20 +24,27 @@ namespace AL.UI
           }
           [Header("Show buttons")]
           [SerializeField] private ShowButtons[] _showButtons;
-            private int _levelDataPlayer;
-          
-          //Main Tools
-          public SC_SettingUiController _settingsUIController;
+          private int _levelDataPlayer;
+          [Header("UI Settings")]
+          [SerializeField] private Image _brightness;
+          private AudioSource _music;
 
+          //Main Tools
+          [HideInInspector] private SC_SettingsDataPersisten _dataPlayer;
+          //bools
+          private bool _endCorrutine;
           #endregion
 
           #region UnityCalls
-          void Start()
+          private void Awake()
           {
-              //Start game
-              Time.timeScale = 1;
+              _dataPlayer = SC_SettingsDataPersisten._instanceData;
+          }
+          private void Start()
+          {     
+              _music = _dataPlayer.GetComponentInChildren<AudioSource>();
 
-                //Applying button onClick 
+              //Applying button onClick 
               for (int i = 1; i <= _buttonLevel.Length; i++)
               {
                   int _count = i;
@@ -46,18 +54,43 @@ namespace AL.UI
 
               //Invoke 
               Invoke(nameof(ShowButtonsDataPlayer),.2f);
+              
+              //corrutines
+              StartCoroutine(nameof(UpdateCorrutine));
           }
+          private void OnDestroy()
+          {
+              _endCorrutine = true;
+          }
+         
           #endregion
 
           #region Methods
           private void ShowButtonsDataPlayer()
           {
               //Activate Buttons Level
-              _levelDataPlayer = _settingsUIController._dataPlayer._levelCurrentSave;
+              _levelDataPlayer = _dataPlayer._levelCurrentSave;
               for (int i = 1 ; i<= _levelDataPlayer; i++ )
               {
                   _showButtons[i-1]._buttonToShow.interactable = true;
               }
+          }
+
+          IEnumerator UpdateCorrutine()
+          {
+              while(!_endCorrutine)
+              {   
+                  ApplicateUISettings();
+                  yield return null;
+              }
+          }
+           void ApplicateUISettings()
+          {
+              //brightness intensity controller
+              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
+              //Controll volum of music
+              _music.volume = _dataPlayer._valuenMusica;
+             
           }
         #endregion
     }

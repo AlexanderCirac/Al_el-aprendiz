@@ -932,12 +932,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429425221}
-  - component: {fileID: 429425223}
   - component: {fileID: 429425224}
-  - component: {fileID: 429425225}
-  - component: {fileID: 429425226}
   - component: {fileID: 429425227}
-  - component: {fileID: 429425228}
   m_Layer: 0
   m_Name: Controlador_General
   m_TagString: Untagged
@@ -959,23 +955,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &429425223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a6751cb1dac0b744819b000eec815e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SC_D: {fileID: 0}
-  m_Brillo: {fileID: 1446312285}
-  m_musica: {fileID: 0}
-  m_zurdo: {fileID: 0}
-  m_numero: 0
 --- !u!114 &429425224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,31 +968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_textoCargando: {fileID: 375491532}
---- !u!114 &429425225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494701dad78747b43b3942a024da17c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &429425226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5d586bac2774943841b6e0c218100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: 60
 --- !u!114 &429425227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,19 +984,6 @@ MonoBehaviour:
   m_nomral: {fileID: 256080356}
   m_texto: {fileID: 375491532}
   m_animacionBotonGeneral: {fileID: 619233650}
---- !u!114 &429425228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe69776c6230514da2df22eef6dc857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mesanje: {fileID: 1117789056}
 --- !u!1 &448313697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,10 +1013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87dad90c5779544f8215bd25b254045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _quitGame: {fileID: 0}
+  _quitGame: {fileID: 1911573651}
   _buttonLevel: []
   _showButtons: []
-  _settingsUIController: {fileID: 2111750130}
+  _brightness: {fileID: 1446312285}
 --- !u!4 &448313699
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,8 +1027,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.6755858, y: -0.8465338, z: -5.491569}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2111750131}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1957,7 +1897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: DesactivarSalir
         m_Mode: 1
@@ -2700,7 +2640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ActivarSalir
         m_Mode: 1
@@ -3347,7 +3287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Salir
         m_Mode: 1
@@ -3918,56 +3858,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107727758}
   m_CullTransparentMesh: 0
---- !u!1 &2111750129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2111750131}
-  - component: {fileID: 2111750130}
-  m_Layer: 0
-  m_Name: SettingUIController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2111750130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111750129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 588bad729edf246418a72a1cafa880b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _brightness: {fileID: 1446312285}
-  _sliderBrightness: {fileID: 0}
-  _optionToggle: {fileID: 0}
-  _sliderMusic: {fileID: 0}
-  _panelLeftHand: {fileID: 0}
-  _panelRightHand: {fileID: 0}
-  _dataPlayer: {fileID: 0}
---- !u!4 &2111750131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111750129}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 448313699}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142251088
 GameObject:
   m_ObjectHideFlags: 0
