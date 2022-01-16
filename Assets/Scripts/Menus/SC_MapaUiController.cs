@@ -16,18 +16,18 @@ namespace AL.UI
             public Button _buttonToLevel;
             public int _intLevel;
           }
-          [Header("Button Level")]
           [SerializeField] private ButtonLevel[] _buttonLevel;
           [System.Serializable] public class ShowButtons {
             public string _name;
             public Button _buttonToShow;
           }
-          [Header("Show buttons")]
           [SerializeField] private ShowButtons[] _showButtons;
           private int _levelDataPlayer;
           [Header("UI Settings")]
-          [SerializeField] private Image _brightness;
+          [SerializeField] private Image _brightness;          
           private AudioSource _music;
+          [Header("Panel")]
+          [SerializeField] private GameObject _panelLoading;
 
           //Main Tools
           [HideInInspector] private SC_SettingsDataPersisten _dataPlayer;
@@ -48,7 +48,7 @@ namespace AL.UI
               for (int i = 1; i <= _buttonLevel.Length; i++)
               {
                   int _count = i;
-                  _buttonLevel[i-1]._buttonToLevel.onClick.AddListener(() => SceneManager.LoadScene(_buttonLevel[_count - 1]._intLevel));
+                  _buttonLevel[i-1]._buttonToLevel.onClick.AddListener(() =>LoadingLevel(_count-1));
               }
               _quitGame.onClick.AddListener(() => Application.Quit());
 
@@ -84,13 +84,19 @@ namespace AL.UI
                   yield return null;
               }
           }
-           void ApplicateUISettings()
+          private void ApplicateUISettings()
           {
               //brightness intensity controller
               _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
               //Controll volum of music
               _music.volume = _dataPlayer._valuenMusica;
              
+          }
+
+          private void LoadingLevel(int _int)
+          {
+              _panelLoading.SetActive(true);
+              SceneManager.LoadScene(_buttonLevel[_int]._intLevel);
           }
         #endregion
     }

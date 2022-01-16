@@ -408,7 +408,7 @@ Transform:
   m_Children:
   - {fileID: 150756097}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174022106
 GameObject:
@@ -508,7 +508,7 @@ RectTransform:
   - {fileID: 1117789057}
   - {fileID: 1446312284}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -597,7 +597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CargarNivel
         m_Mode: 3
@@ -923,69 +923,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417740208}
   m_CullTransparentMesh: 0
---- !u!1 &429425220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 429425221}
-  - component: {fileID: 429425224}
-  - component: {fileID: 429425227}
-  m_Layer: 0
-  m_Name: Controlador_General
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &429425221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 139.71976, y: 296.93335, z: -6.625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &429425224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5e7bda1935c6d4f9ff94b5b1f4d105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_textoCargando: {fileID: 375491532}
---- !u!114 &429425227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429425220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713f6f987abf79246b95e20915cc905a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _openAnimScroll: {fileID: 759728558}
-  _closeAnimScroll: {fileID: 256080356}
-  _panelOptions: {fileID: 0}
-  _openButtonScroll: {fileID: 619233647}
-  _closeButtonScroll: {fileID: 0}
-  _currentLevel: 2
 --- !u!1 &448313697
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448313699}
   - component: {fileID: 448313698}
+  - component: {fileID: 448313700}
   m_Layer: 0
   m_Name: MapaUiController
   m_TagString: Untagged
@@ -1019,6 +957,7 @@ MonoBehaviour:
   _buttonLevel: []
   _showButtons: []
   _brightness: {fileID: 1446312285}
+  _panelLoading: {fileID: 375491532}
 --- !u!4 &448313699
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,8 +970,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448313700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448313697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713f6f987abf79246b95e20915cc905a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _openAnimScroll: {fileID: 759728558}
+  _closeAnimScroll: {fileID: 256080356}
+  _panelOptions: {fileID: 0}
+  _openButtonScroll: {fileID: 619233647}
+  _closeButtonScroll: {fileID: 0}
+  _currentLevel: 2
 --- !u!1 &467428726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425227}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Botondescativar
         m_Mode: 1
@@ -1325,7 +1282,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 429425220}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -2110,7 +2067,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CargarNivel
         m_Mode: 3
@@ -2242,7 +2199,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CargarNivel
         m_Mode: 3
@@ -2926,7 +2883,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CargarNivel
         m_Mode: 3
@@ -3655,7 +3612,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429425224}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CargarNivel
         m_Mode: 3
@@ -3924,5 +3881,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
