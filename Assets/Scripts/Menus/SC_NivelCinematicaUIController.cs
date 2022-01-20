@@ -18,10 +18,12 @@ namespace AL.UI
           public int _intLevel;
         }
         [Header("Button")]
-        [SerializeField] private ButtonLevel[] _buttonLevel;
+        [SerializeField] private ButtonLevel[] _buttonLevel;        
         [Header("UI Settings")]
         [SerializeField] private Image _brightness;
         private AudioSource _music;
+        [Header("Panel")]
+        [SerializeField] private GameObject _cinematicaPanel;
         //Main Tools
         [HideInInspector] private SC_SettingsDataPersisten _dataPlayer;
         //bools
@@ -43,7 +45,10 @@ namespace AL.UI
             int _count = i;
             _buttonLevel[i - 1]._buttonToLevel.onClick.AddListener(() => LoadingLevel(_count - 1));
           }
-        
+
+          //Invocke
+          Invoke(nameof(CinematicaLoading),.4f);
+
           //corrutines
           StartCoroutine(nameof(UpdateCorrutine));
         }
@@ -75,6 +80,10 @@ namespace AL.UI
         private void LoadingLevel(int _int)
         {
           SceneManager.LoadScene(_buttonLevel[_int]._intLevel);
+        }        
+        private void CinematicaLoading()
+        {
+          _cinematicaPanel.SetActive(true);
         }
         #endregion
   
