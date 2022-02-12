@@ -48,15 +48,6 @@ namespace AL.UI
                 }              
                     
           }
-
-          private void OnDestroy()
-          {
-
-          }
-
-          private void Update()
-          {
-          }
           #endregion
 
           #region Methods

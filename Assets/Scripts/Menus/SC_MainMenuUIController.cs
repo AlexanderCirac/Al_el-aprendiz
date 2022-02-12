@@ -8,49 +8,44 @@ namespace AL.UI
 {
     public class SC_MainMenuUIController : MonoBehaviour
     {
-         #region Attributes
+          #region Attributes
           [Header("Buttons")]
-          [SerializeField] private Button _buttonQuit;          
-          [SerializeField] private Button _buttonPlay;
-          [SerializeField] private Button _buttonDLC;
+          [SerializeField] private Button _quitButton;          
+          [SerializeField] private Button _playButton;
+          [SerializeField] private Button _dLCButton;
           [System.Serializable] public class ButtonsReturnMenu 
           {
                public Button _buttons;
           }
           [Header("Buttons to return to menu")]
-          [SerializeField] private ButtonsReturnMenu[] _buttonsReturnMenu;
-          [SerializeField] private Button _buttonOptions;
-          [SerializeField] private Button _buttonCredits;
+          [SerializeField] private ButtonsReturnMenu[] _arrayButtonsMenus;
+          [SerializeField] private Button _optionButton;
+          [SerializeField] private Button _creditButton;
           [Header("Panels")]
-          [SerializeField] private GameObject _panelDLC;
-          [SerializeField] private GameObject _panelMenu;
-          [SerializeField] private GameObject _panelOptions;
-          [SerializeField] private GameObject _panelCredits;
-          [SerializeField] private GameObject _panelAnimationForward;
-          [SerializeField] private GameObject _panelAnimationBack;
+          [SerializeField] private GameObject _dLCPanel;
+          [SerializeField] private GameObject _menuPanel;
+          [SerializeField] private GameObject _optionPanel;
+          [SerializeField] private GameObject _creditPanel;
+          [SerializeField] private GameObject _animationForwardPanel;
+          [SerializeField] private GameObject _animationBackPanel;
           #endregion
 
           #region UnityCalls
-          private void Awake()
-          {
-              //if(SC_SettingsDataPersisten._instanceData._firstDLC)
-              //      _panelDLC.SetActive(false);
-          }
           private void Start()
           {   
               //Start game
               Time.timeScale = 1;
 
               // Button OnClick
-              _buttonQuit.onClick.AddListener(() => Application.Quit());
-              _buttonPlay.onClick.AddListener(() => SceneManager.LoadScene(2));
-              for (int i = 1; i <= _buttonsReturnMenu.Length; i++)
+              _quitButton.onClick.AddListener(() => Application.Quit());
+              _playButton.onClick.AddListener(() => SceneManager.LoadScene(2));
+              for (int i = 1; i <= _arrayButtonsMenus.Length; i++)
               {
-                  _buttonsReturnMenu[i-1]._buttons.onClick.AddListener(() => StartCoroutine(DesactivatePanel()));
+                  _arrayButtonsMenus[i-1]._buttons.onClick.AddListener(() => StartCoroutine(DesactivatePanel()));
               }
-              _buttonOptions.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_panelOptions)));
-              _buttonCredits.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_panelCredits)));
-              _buttonDLC.onClick.AddListener(CerrarDLC);
+              _optionButton.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_optionPanel)));
+              _creditButton.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_creditPanel)));
+              _dLCButton.onClick.AddListener(CerrarDLC);
           }
           #endregion  
     
@@ -59,24 +54,24 @@ namespace AL.UI
           {
               SC_SettingsDataPersisten._instanceData._firstDLC = true;
               SC_SaveAndLoadPlayerData._instance.Save();
-              _panelDLC.SetActive(false);
+              _dLCPanel.SetActive(false);
           }          
           IEnumerator ActivatePanelAnimation( GameObject _panel)
           {
-              _panelMenu.SetActive(false);
-              _panelAnimationForward.SetActive(true);
+              _menuPanel.SetActive(false);
+              _animationForwardPanel.SetActive(true);
               yield return new WaitForSeconds(.45f);
-              _panelAnimationForward.SetActive(false);
+              _animationForwardPanel.SetActive(false);
               _panel.SetActive(true);
           }          
           IEnumerator DesactivatePanel()
           {
-             _panelOptions.SetActive(false);
-             _panelCredits.SetActive(false);
-             _panelAnimationBack.SetActive(true);
+             _optionPanel.SetActive(false);
+             _creditPanel.SetActive(false);
+             _animationBackPanel.SetActive(true);
              yield return new WaitForSeconds(.45f);
-             _panelAnimationBack.SetActive(true);
-             _panelMenu.SetActive(true);
+             _animationBackPanel.SetActive(true);
+             _menuPanel.SetActive(true);
           }
           #endregion
     }

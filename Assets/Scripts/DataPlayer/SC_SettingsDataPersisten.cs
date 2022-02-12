@@ -12,9 +12,9 @@ namespace AL.Data
           [HideInInspector] public bool _handLeft;
           [HideInInspector] public bool _ad; 
           [HideInInspector] public bool _firstDLC;
-          [HideInInspector] public bool m_retorno1;  
-          [HideInInspector] public bool m_retorno2; 
-          [HideInInspector] public bool m_retorno3;
+          [HideInInspector] public bool _isRetorno1;  
+          [HideInInspector] public bool _isRetorno2; 
+          [HideInInspector] public bool _isRetorno3;
           //main Tools
           [SerializeField ] private SC_SaveData _scriptable;
           #endregion

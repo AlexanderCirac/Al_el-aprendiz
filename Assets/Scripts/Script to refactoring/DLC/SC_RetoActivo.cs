@@ -56,15 +56,15 @@ public class SC_RetoActivo : MonoBehaviour
   {
     if (m_id == 1)
     {
-      SC_DJ.m_retorno1 = true;
+      SC_DJ._isRetorno1 = true;
     }    
     if (m_id == 2)
     {
-      SC_DJ.m_retorno2 = true;
+      SC_DJ._isRetorno2 = true;
     }
     if (m_id == 3)
     {
-      SC_DJ.m_retorno3 = true;
+      SC_DJ._isRetorno3 = true;
     }
     m_evento.SetActive(false);
     if (m_dialogo != null)

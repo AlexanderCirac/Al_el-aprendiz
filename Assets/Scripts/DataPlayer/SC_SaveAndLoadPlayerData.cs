@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
-using AL.Data;
 
 namespace AL.Data
 {
@@ -9,7 +8,7 @@ namespace AL.Data
     {
           #region Attributes
           [Header("Nombre Scriptable")]
-          [SerializeField] private string _nameOfPlayerData;
+          [SerializeField] private string _nameData;
           [Header("Scriptable Object")]
           [SerializeField] private SC_SaveData _playerData;
           [SerializeField] private SC_SettingsDataPersisten _settingsData;
@@ -34,17 +33,17 @@ namespace AL.Data
           #region Methods
           private void FirstLoad()
           {
-              if (File.Exists(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData)))
+              if (File.Exists(Application.persistentDataPath + string.Format(".pso", _nameData)))
               {
                   BinaryFormatter bf = new BinaryFormatter();
-                  FileStream file = File.Open(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData), FileMode.Open);
+                  FileStream file = File.Open(Application.persistentDataPath + string.Format(".pso", _nameData), FileMode.Open);
                   JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), _playerData);
                   file.Close();
               }
               else
               {
                   BinaryFormatter bf = new BinaryFormatter();
-                  FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData));
+                  FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameData));
                   var json = JsonUtility.ToJson(_playerData);
                   bf.Serialize(file, json);
                   file.Close();
@@ -53,7 +52,6 @@ namespace AL.Data
               _settingsData._levelCurrentSave = _playerData._savedLevel;
               _settingsData._valueBrightness = _playerData._saveValueBrighnesst;
               _settingsData._valuenMusica = _playerData._saveValueMusic;
-              //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
               _settingsData._handLeft = _playerData._saveHandLeft;
               _settingsData._ad = _playerData._saveAd;
               _settingsData._firstDLC = _playerData._saveFirstDLC;
@@ -64,13 +62,12 @@ namespace AL.Data
               _playerData._savedLevel = _settingsData._levelCurrentSave;
               _playerData._saveValueBrighnesst = _settingsData._valueBrightness;
               _playerData._saveValueMusic = _settingsData._valuenMusica;
-              //m_objetoPersistente.m_ID_Grafico = m_Datos.m_ID_Grafico;
               _playerData._saveHandLeft = _settingsData._handLeft;
               _playerData._saveAd = _settingsData._ad;
               _playerData._saveFirstDLC = _settingsData._firstDLC;
 
               BinaryFormatter bf = new BinaryFormatter();
-              FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData));
+              FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameData));
               var json = JsonUtility.ToJson(_playerData);
               bf.Serialize(file, json);
               file.Close();
@@ -78,10 +75,10 @@ namespace AL.Data
 
           public void Load()
           {
-              if (File.Exists(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData)))
+              if (File.Exists(Application.persistentDataPath + string.Format(".pso", _nameData)))
               {
                   BinaryFormatter bf = new BinaryFormatter();
-                  FileStream file = File.Open(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData), FileMode.Open);
+                  FileStream file = File.Open(Application.persistentDataPath + string.Format(".pso", _nameData), FileMode.Open);
                   JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), _playerData);
                   file.Close();
               }
@@ -89,7 +86,6 @@ namespace AL.Data
               _settingsData._levelCurrentSave = _playerData._savedLevel;
               _settingsData._valueBrightness = _playerData._saveValueBrighnesst;
               _settingsData._valuenMusica = _playerData._saveValueMusic;
-              //m_Datos.m_ID_Grafico = m_objetoPersistente.m_ID_Grafico;
               _settingsData._handLeft = _playerData._saveHandLeft;
           }
 
@@ -101,7 +97,7 @@ namespace AL.Data
               _playerData._saveFirstDLC = false;
 
               BinaryFormatter bf = new BinaryFormatter();
-              FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameOfPlayerData));
+              FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameData));
               var json = JsonUtility.ToJson(_playerData);
               bf.Serialize(file, json);
               file.Close();

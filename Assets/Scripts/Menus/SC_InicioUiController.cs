@@ -10,33 +10,34 @@ namespace AL.UI
     {
           #region Attributes
           [Header("Buttons")]
-          [SerializeField] private Button _loadLevel;
+          [SerializeField] private Button _loadButton;
           [Header("Panels")]
           [SerializeField] private GameObject _panelAnimation;
           [Header("Setting")]
           [SerializeField] private Image _brightness;
           [SerializeField] private AudioSource _music;
-           private bool _endSettingCorrutine;
+
           // Main Tools
            [SerializeField] private SC_SettingsDataPersisten _dataPlayer;
           #endregion
     
           #region UnityCalls
-          // Start is called before the first frame update
           void Start()
           {
-              _loadLevel.onClick.AddListener(ActiveAnimation);
-              StartCoroutine(nameof(CorrutineSettings));
-              FrameRate();
+              //start game 
+              if (Application.targetFrameRate != 60)
+              {
+                   Application.targetFrameRate = 60;
+              }
+              //OnClick
+              _loadButton.onClick.AddListener(ActiveAnimation);
           }
-
-          // Update is called once per frame
-          private void OnDestroy()
+          private void Update()
           {
-                _endSettingCorrutine = true;
+              ControlSettings();
           }
-          #endregion 
-    
+          #endregion
+
           #region Methods
           private void ActiveAnimation()
           {
@@ -47,26 +48,12 @@ namespace AL.UI
           {
               SceneManager.LoadScene(1);
           }
-          IEnumerator CorrutineSettings()
-          {
-                while(!_endSettingCorrutine)
-                {
-                  ControlSettings();
-                  yield return null;
-                }
-          }
+
           private void ControlSettings()
           {
               _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
               _music.volume = _dataPlayer._valuenMusica;
           }          
-          private void FrameRate()
-          {
-              if (Application.targetFrameRate != 60)
-              {
-                   Application.targetFrameRate = 60;
-              }
-          }
           #endregion
     }
 }
