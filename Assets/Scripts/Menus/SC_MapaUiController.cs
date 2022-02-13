@@ -10,80 +10,53 @@ namespace AL.UI
     {
           #region Attributes
           [Header("Button")]
-          [SerializeField] private Button _quitGame;
+          [SerializeField] private Button _quitButton;
           [System.Serializable] public class ButtonLevel {
-            public string _name;
-            public Button _buttonToLevel;
-            public int _intLevel;
+            [SerializeField] private string _name;
+            public Button _levelButton;
+            public int _iDLevel;
           }
-          [SerializeField] private ButtonLevel[] _buttonLevel;
-          [System.Serializable] public class ShowButtons {
-            public string _name;
-            public Button _buttonToShow;
-          }
-          [SerializeField] private ShowButtons[] _showButtons;
+          [SerializeField] private ButtonLevel[] _arryLevel;
           private int _levelDataPlayer;
           [Header("UI Settings")]
           [SerializeField] private Image _brightness;          
           private AudioSource _music;
           [Header("Panel")]
-          [SerializeField] private GameObject _panelLoading;
+          [SerializeField] private GameObject _loadingPanel;
 
           //Main Tools
           [HideInInspector] private SC_SettingsDataPersisten _dataPlayer;
-          //bools
-          private bool _endCorrutine;
           #endregion
 
           #region UnityCalls
           private void Awake()
           {
               _dataPlayer = SC_SettingsDataPersisten._instanceData;
+              _levelDataPlayer = _dataPlayer._levelCurrentSave;
+              _music = _dataPlayer.GetComponentInChildren<AudioSource>();
           }
           private void Start()
           {     
-              _music = _dataPlayer.GetComponentInChildren<AudioSource>();
-
-              //Applying button onClick 
-              for (int i = 1; i <= _buttonLevel.Length; i++)
+              // onClick and show button
+              for (int i = 1; i <= _arryLevel.Length; i++)
               {
                   int _count = i;
-                  _buttonLevel[i-1]._buttonToLevel.onClick.AddListener(() =>LoadingLevel(_count-1));
+                  _arryLevel[i-1]._levelButton.onClick.AddListener(() =>LoadingLevel(_count-1));
+                  if(_count <= _levelDataPlayer)
+                  {
+                     _arryLevel[i-1]._levelButton.interactable = true;
+                  }
               }
-              _quitGame.onClick.AddListener(() => Application.Quit());
+              _quitButton.onClick.AddListener(() => Application.Quit());
 
-              //Invoke 
-              Invoke(nameof(ShowButtonsDataPlayer),.2f);
-              
-              //corrutines
-              StartCoroutine(nameof(UpdateCorrutine));
           }
-          private void OnDestroy()
+          private void Update()
           {
-              _endCorrutine = true;
+              ApplicateUISettings();
           }
-         
           #endregion
 
           #region Methods
-          private void ShowButtonsDataPlayer()
-          {
-              //Activate Buttons Level
-              _levelDataPlayer = _dataPlayer._levelCurrentSave;
-              for (int i = 1 ; i<= _levelDataPlayer; i++ )
-              {
-                  _showButtons[i-1]._buttonToShow.interactable = true;
-              }
-          }
-
-          IEnumerator UpdateCorrutine()
-          {
-              while(!_endCorrutine)
-              {   
-                  ApplicateUISettings();
-                  yield return null;
-              }
-          }
           private void ApplicateUISettings()
           {
               //brightness intensity controller
@@ -95,8 +68,8 @@ namespace AL.UI
 
           private void LoadingLevel(int _int)
           {
-              _panelLoading.SetActive(true);
-              SceneManager.LoadScene(_buttonLevel[_int]._intLevel);
+              _loadingPanel.SetActive(true);
+              SceneManager.LoadScene(_arryLevel[_int]._iDLevel);
           }
         #endregion
     }
