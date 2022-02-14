@@ -13,21 +13,20 @@ namespace AL.UI
         [System.Serializable]
         public class ButtonLevel
         {
-          public string _name;
-          public Button _buttonToLevel;
-          public int _intLevel;
+          [SerializeField] private string _name;
+          public Button _loadLevelButton;
+          public int _iDLevel;
         }
         [Header("Button")]
-        [SerializeField] private ButtonLevel[] _buttonLevel;        
+        [SerializeField] private ButtonLevel[] _arrayLevel;        
         [Header("UI Settings")]
-        [SerializeField] private Image _brightness;
+        [SerializeField] private Image _brightnessPanel;
         private AudioSource _music;
         [Header("Panel")]
         [SerializeField] private GameObject _cinematicaPanel;
         //Main Tools
         [HideInInspector] private SC_SettingsDataPersisten _dataPlayer;
-        //bools
-        private bool _endCorrutine;
+
         #endregion
 
         #region UnityCalls
@@ -40,48 +39,36 @@ namespace AL.UI
           _music = _dataPlayer.GetComponentInChildren<AudioSource>();
 
           //Applying button onClick 
-          for (int i = 1; i <= _buttonLevel.Length; i++)
+          for (int i = 1; i <= _arrayLevel.Length; i++)
           {
             int _count = i;
-            _buttonLevel[i - 1]._buttonToLevel.onClick.AddListener(() => LoadingLevel(_count - 1));
+            _arrayLevel[i - 1]._loadLevelButton.onClick.AddListener(() => ToLoadLevel(_count - 1));
           }
 
           //Invocke
-          Invoke(nameof(CinematicaLoading),.4f);
-
-          //corrutines
-          StartCoroutine(nameof(UpdateCorrutine));
+          Invoke(nameof(ToShowCinematic),.4f);
         }
-        private void OnDestroy()
+        private void Update()
         {
-          _endCorrutine = true;
+            ToUISettings();
         }
-
         #endregion
 
         #region Methods
-        IEnumerator UpdateCorrutine()
-        {
-          while (!_endCorrutine)
-          {
-            ApplicateUISettings();
-            yield return null;
-          }
-        }
-        private void ApplicateUISettings()
+        private void ToUISettings()
         {
           //brightness intensity controller
-          _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
+          _brightnessPanel.color = new Color(_brightnessPanel.color.r, _brightnessPanel.color.g, _brightnessPanel.color.b, _dataPlayer._valueBrightness - 0.1f);
           //Controll volum of music
           _music.volume = _dataPlayer._valuenMusica;
 
         }
 
-        private void LoadingLevel(int _int)
+        private void ToLoadLevel(int _iDArray)
         {
-          SceneManager.LoadScene(_buttonLevel[_int]._intLevel);
+          SceneManager.LoadScene(_arrayLevel[_iDArray]._iDLevel);
         }        
-        private void CinematicaLoading()
+        private void ToShowCinematic()
         {
           _cinematicaPanel.SetActive(true);
         }

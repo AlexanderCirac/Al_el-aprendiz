@@ -30,26 +30,26 @@ namespace AL.UI
                    Application.targetFrameRate = 60;
               }
               //OnClick
-              _loadButton.onClick.AddListener(ActiveAnimation);
+              _loadButton.onClick.AddListener(ToAnimationButton);
           }
           private void Update()
           {
-              ControlSettings();
+              ToSettings();
           }
           #endregion
 
           #region Methods
-          private void ActiveAnimation()
+          private void ToAnimationButton()
           {
               _panelAnimation.SetActive(true);
-              Invoke(nameof(LoadLevel),1.2f);
+              Invoke(nameof(ToLoadLevel),1.2f);
           }
-          private void LoadLevel()
+          private void ToLoadLevel()
           {
               SceneManager.LoadScene(1);
           }
 
-          private void ControlSettings()
+          private void ToSettings()
           {
               _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
               _music.volume = _dataPlayer._valuenMusica;

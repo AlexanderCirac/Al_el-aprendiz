@@ -41,22 +41,22 @@ namespace AL.UI
               _playButton.onClick.AddListener(() => SceneManager.LoadScene(2));
               for (int i = 1; i <= _arrayButtonsMenus.Length; i++)
               {
-                  _arrayButtonsMenus[i-1]._buttons.onClick.AddListener(() => StartCoroutine(DesactivatePanel()));
+                  _arrayButtonsMenus[i-1]._buttons.onClick.AddListener(() => StartCoroutine(CorrutineHiddenPanel()));
               }
-              _optionButton.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_optionPanel)));
-              _creditButton.onClick.AddListener(() => StartCoroutine(ActivatePanelAnimation(_creditPanel)));
-              _dLCButton.onClick.AddListener(CerrarDLC);
+              _optionButton.onClick.AddListener(() => StartCoroutine(CorrutineShowPanel(_optionPanel)));
+              _creditButton.onClick.AddListener(() => StartCoroutine(CorrutineShowPanel(_creditPanel)));
+              _dLCButton.onClick.AddListener(ToCloseDLC);
           }
           #endregion  
     
           #region Methods
-          public void CerrarDLC()
+          public void ToCloseDLC()
           {
               SC_SettingsDataPersisten._instanceData._firstDLC = true;
               SC_SaveAndLoadPlayerData._instance.Save();
               _dLCPanel.SetActive(false);
           }          
-          IEnumerator ActivatePanelAnimation( GameObject _panel)
+          IEnumerator CorrutineShowPanel( GameObject _panel)
           {
               _menuPanel.SetActive(false);
               _animationForwardPanel.SetActive(true);
@@ -64,7 +64,7 @@ namespace AL.UI
               _animationForwardPanel.SetActive(false);
               _panel.SetActive(true);
           }          
-          IEnumerator DesactivatePanel()
+          IEnumerator CorrutineHiddenPanel()
           {
              _optionPanel.SetActive(false);
              _creditPanel.SetActive(false);

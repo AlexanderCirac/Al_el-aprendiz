@@ -40,18 +40,18 @@ namespace AL.UI
           void Start()
           {
               //Buttons
-              _winButton.onClick.AddListener(Win);
+              _winButton.onClick.AddListener(ToWin);
               for (int i = 1; i <= _buttonsToCancelMenu._button.Length; i++)
                 {
-                    _buttonsToCancelMenu._button[i - 1].GetComponent<SC_Touch>().OnHold.AddListener(CancelMenuButton);
-                    _buttonsToCancelMenu._button[i - 1].GetComponent<SC_Touch>().OnRealise.AddListener(ActivateMenuButton);
+                    _buttonsToCancelMenu._button[i - 1].GetComponent<SC_Touch>().OnHold.AddListener(ToShowMenu);
+                    _buttonsToCancelMenu._button[i - 1].GetComponent<SC_Touch>().OnRealise.AddListener(ToHiddenMenu);
                 }              
                     
           }
           #endregion
 
           #region Methods
-          private void Win()
+          private void ToWin()
           {
                if (_currentLevel > _settingsData._levelCurrentSave)
                {
@@ -61,11 +61,11 @@ namespace AL.UI
                _loadingPanel.SetActive(true);
                SceneManager.LoadScene(2);
           }          
-          private void CancelMenuButton()
+          private void ToShowMenu()
           {
               _menuButtonPanel.SetActive(true);
           }          
-          private void ActivateMenuButton()
+          private void ToHiddenMenu()
           {
               _menuButtonPanel.SetActive(false);
           }

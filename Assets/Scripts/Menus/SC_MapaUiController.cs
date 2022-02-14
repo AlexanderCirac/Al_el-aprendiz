@@ -41,7 +41,7 @@ namespace AL.UI
               for (int i = 1; i <= _arryLevel.Length; i++)
               {
                   int _count = i;
-                  _arryLevel[i-1]._levelButton.onClick.AddListener(() =>LoadingLevel(_count-1));
+                  _arryLevel[i-1]._levelButton.onClick.AddListener(() =>ToLoadLevel(_count-1));
                   if(_count <= _levelDataPlayer)
                   {
                      _arryLevel[i-1]._levelButton.interactable = true;
@@ -52,12 +52,12 @@ namespace AL.UI
           }
           private void Update()
           {
-              ApplicateUISettings();
+              ToUISettings();
           }
           #endregion
 
           #region Methods
-          private void ApplicateUISettings()
+          private void ToUISettings()
           {
               //brightness intensity controller
               _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
@@ -66,10 +66,10 @@ namespace AL.UI
              
           }
 
-          private void LoadingLevel(int _int)
+          private void ToLoadLevel(int _iDArray)
           {
               _loadingPanel.SetActive(true);
-              SceneManager.LoadScene(_arryLevel[_int]._iDLevel);
+              SceneManager.LoadScene(_arryLevel[_iDArray]._iDLevel);
           }
         #endregion
     }
