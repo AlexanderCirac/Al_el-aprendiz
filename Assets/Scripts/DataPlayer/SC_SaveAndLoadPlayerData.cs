@@ -4,8 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AL.Data
 {
-    public class SC_SaveAndLoadPlayerData : MonoBehaviour
-    {
+    public class SC_SaveAndLoadPlayerData : MyMonoBehaviour
+  {
           #region Attributes
           [Header("Nombre Scriptable")]
           [SerializeField] private string _nameData;
@@ -13,6 +13,7 @@ namespace AL.Data
           [SerializeField] private SC_SaveData _playerData;
           [SerializeField] private SC_SettingsDataPersisten _settingsData;
           #endregion          
+
           #region Singlenton
           public static SC_SaveAndLoadPlayerData _instance;
           #endregion
