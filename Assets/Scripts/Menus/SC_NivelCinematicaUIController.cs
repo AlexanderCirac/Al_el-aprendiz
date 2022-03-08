@@ -14,11 +14,12 @@ namespace AL.UI
         public class ButtonLevel
         {
           [SerializeField] private string _name;
-          public Button _loadLevelButton;
+          public Button _button;
           public int _iDLevel;
         }
         [Header("Button")]
-        [SerializeField] private ButtonLevel[] _arrayLevel;        
+        [SerializeField] private ButtonLevel[] _arrayLevelButton;        
+        [SerializeField] private Button _creditButton;        
         [Header("UI Settings")]
         [SerializeField] private Image _brightnessPanel;
         private AudioSource _music;
@@ -39,12 +40,12 @@ namespace AL.UI
           _music = _dataPlayer.GetComponentInChildren<AudioSource>();
 
           //Applying button onClick 
-          for (int i = 1; i <= _arrayLevel.Length; i++)
+          for (int i = 1; i <= _arrayLevelButton.Length; i++)
           {
             int _count = i;
-            _arrayLevel[i - 1]._loadLevelButton.onClick.AddListener(() => ToLoadLevel(_count - 1));
+            _arrayLevelButton[i - 1]._button.onClick.AddListener(() => ToLoadLevel(_count - 1));
           }
-
+          _creditButton.onClick.AddListener(() => SceneManager.LoadScene(1));
           //Invocke
           Invoke(nameof(ToShowCinematic),.4f);
         }
@@ -66,7 +67,7 @@ namespace AL.UI
 
         private void ToLoadLevel(int _iDArray)
         {
-          SceneManager.LoadScene(_arrayLevel[_iDArray]._iDLevel);
+          SceneManager.LoadScene(_arrayLevelButton[_iDArray]._iDLevel);
         }        
         private void ToShowCinematic()
         {
