@@ -3,7 +3,7 @@
 namespace AL.Data
 {
     public class SC_SettingsDataPersisten : MyMonoBehaviour
-  {
+    {
           #region Attributes
           //Data Settings
           [HideInInspector] public int _levelCurrentSave;
