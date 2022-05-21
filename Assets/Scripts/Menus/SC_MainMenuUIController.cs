@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AL.UI
 {
-    public class SC_MainMenuUIController : MonoBehaviour
+    public class SC_MainMenuUIController : MyMonoBehaviour
     {
           #region Attributes
           [Header("Buttons")]
@@ -52,7 +52,7 @@ namespace AL.UI
           #region Methods
           public void ToCloseDLC()
           {
-              SC_SettingsDataPersisten._instanceData._firstDLC = true;
+              _settingData._firstDLC = true;
               SC_SaveAndLoadPlayerData._instance.Save();
               _dLCPanel.SetActive(false);
           }          

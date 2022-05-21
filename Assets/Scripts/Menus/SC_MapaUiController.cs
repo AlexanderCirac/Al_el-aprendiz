@@ -6,7 +6,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_MapaUiController : MonoBehaviour
+    public class SC_MapaUiController : MyMonoBehaviour
     {
           #region Attributes
           [Header("Button")]
@@ -31,7 +31,7 @@ namespace AL.UI
           #region UnityCalls
           private void Awake()
           {
-              _dataPlayer = SC_SettingsDataPersisten._instanceData;
+              //_dataPlayer = SC_SettingsDataPersisten._instanceData;
               _levelDataPlayer = _dataPlayer._levelCurrentSave;
               _music = _dataPlayer.GetComponentInChildren<AudioSource>();
           }

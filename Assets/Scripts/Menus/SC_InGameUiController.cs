@@ -8,7 +8,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_InGameUiController : MonoBehaviour
+    public class SC_InGameUiController : MyMonoBehaviour
     {
           #region Attributes
           [Header("int")]
@@ -34,7 +34,7 @@ namespace AL.UI
           #region UnityCalls
           private void Awake()
           {
-               _settingsData = SC_SettingsDataPersisten._instanceData;
+              // _settingsData = SC_SettingsDataPersisten._instanceData;
                _saveLoadData = SC_SaveAndLoadPlayerData._instance;
           }
           void Start()

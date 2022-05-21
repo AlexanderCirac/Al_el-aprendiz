@@ -1,12 +1,13 @@
 using UnityEngine;
-using AL.Data;
 
 namespace AL
 {
+    using AL.Data;
     public class MyMonoBehaviour : MonoBehaviour
     {
-        protected SC_SettingsDataPersisten settingsData => SC_SettingsDataPersisten._instanceData;
-        protected SC_SaveAndLoadPlayerData saveAndLoad => SC_SaveAndLoadPlayerData._instance;
+       protected SC_GameGeneralMannager _gameManager => SC_GameGeneralMannager._instance;
+       protected SC_SettingsDataPersisten _settingData => _gameManager._settingsDataPersisten;
+       protected SC_SaveAndLoadPlayerData _playerData => _gameManager._saveAndLoadPlayerData;
 
     } 
 }

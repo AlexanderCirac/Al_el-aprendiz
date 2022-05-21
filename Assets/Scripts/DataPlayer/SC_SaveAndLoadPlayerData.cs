@@ -29,7 +29,7 @@ namespace AL.Data
         #region custom private methods
         void Init()
         {
-            _settingsData = SC_SettingsDataPersisten._instanceData;
+            //_settingsData = SC_SettingsDataPersisten._instanceData;
             _instance = this;
         }
         void FirstLoad()

@@ -20,7 +20,7 @@ namespace AL.Data
           #endregion
 
           #region Singleton
-          internal static SC_SettingsDataPersisten _instanceData;
+          internal SC_SettingsDataPersisten _instanceData;
           #endregion
 
           #region UnityCalls

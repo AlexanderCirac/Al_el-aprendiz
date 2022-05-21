@@ -6,7 +6,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_NivelCinematicaUIController : MonoBehaviour
+    public class SC_NivelCinematicaUIController : MyMonoBehaviour
     {
         #region Attributes
         //[SerializeField] private Button _quitGame;
@@ -33,7 +33,7 @@ namespace AL.UI
         #region UnityCalls
         private void Awake()
         {
-          _dataPlayer = SC_SettingsDataPersisten._instanceData;
+          //_dataPlayer = SC_SettingsDataPersisten._instanceData;
         }
         private void Start()
         {
