@@ -3,7 +3,7 @@ using AL.Data;
 public class SC_Controlador_Graficos : MonoBehaviour
 {
   [HideInInspector]
-  public SC_SettingsDataPersisten SC_D;
+ //public SC_SettingsDataPersisten SC_D;
 
  
   
@@ -22,11 +22,11 @@ public class SC_Controlador_Graficos : MonoBehaviour
   void LectorScript()
   {
 
-    if (SC_D == null)
-    {
+    //if (SC_D == null)
+    //{
 
-      SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
-    }
+    //  SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
+    //}
   }
 
   //public void bajo()

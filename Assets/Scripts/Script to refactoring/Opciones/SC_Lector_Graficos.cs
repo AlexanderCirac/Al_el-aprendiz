@@ -7,7 +7,7 @@ public class SC_Lector_Graficos : MonoBehaviour
   //pondra una opcion de grafico o otro
 
   [HideInInspector]
-  public SC_SettingsDataPersisten SC_D;
+ // public SC_SettingsDataPersisten SC_D;
 
   private int m_Actual_ID_Grafico;
     // Update is called once per frame
@@ -20,11 +20,11 @@ public class SC_Lector_Graficos : MonoBehaviour
   void LectorScript()
   {
 
-    if (SC_D == null)
-    {
+    //if (SC_D == null)
+    //{
 
-      SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
-    }
+    //  SC_D = FindObjectOfType<SC_SettingsDataPersisten>();
+    //}
   }
 
   void LectorGrafico()
