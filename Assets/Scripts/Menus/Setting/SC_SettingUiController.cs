@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using AL.Data;
+using AL;
 
 namespace AL.UI.Settings
 {
