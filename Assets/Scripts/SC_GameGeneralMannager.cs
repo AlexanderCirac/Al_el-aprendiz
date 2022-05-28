@@ -5,7 +5,7 @@ namespace AL
   {
     #region Attributes
     //internal SC_SettingsDataPersisten _settingsDataPersisten;
-    //internal SC_SaveAndLoadPlayerData _saveAndLoadPlayerData;
+    internal SC_SaveAndLoadPlayerData _saveAndLoadPlayerData;
     internal int i;
     internal static SC_GameGeneralMannager _instance;
 
