@@ -4,7 +4,7 @@ namespace AL
   public class SC_GameGeneralMannager : MyMonoBehaviour
   {
     #region Attributes
-    //internal SC_SettingsDataPersisten _settingsDataPersisten;
+    internal SC_SettingsDataPersisten _settingsDataPersisten;
     internal SC_SaveAndLoadPlayerData _saveAndLoadPlayerData;
     internal int i;
     internal static SC_GameGeneralMannager _instance;
@@ -20,8 +20,8 @@ namespace AL
     {
       _gameManager.i = 0;
       _instance = this;
-      //_settingsDataPersisten = FindObjectOfType<SC_SettingsDataPersisten>();
-      //_saveAndLoadPlayerData = FindObjectOfType<SC_SaveAndLoadPlayerData>();
+      _settingsDataPersisten = FindObjectOfType<SC_SettingsDataPersisten>();
+      _saveAndLoadPlayerData = FindObjectOfType<SC_SaveAndLoadPlayerData>();
     }
     #endregion
   }
