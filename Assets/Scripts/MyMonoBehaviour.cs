@@ -9,8 +9,8 @@ namespace AL
   {
 
     protected SC_GameGeneralMannager _gameManager => SC_GameGeneralMannager._instance;
-    protected SC_SettingsDataPersisten _settingData => _gameManager._settingsDataPersisten;
-    protected SC_SaveAndLoadPlayerData _playerData => _gameManager._saveAndLoadPlayerData;
+    //protected SC_SettingsDataPersisten _settingData => _gameManager._settingsDataPersisten;
+    //protected SC_SaveAndLoadPlayerData _playerData => _gameManager._saveAndLoadPlayerData;
   }
 }
 
