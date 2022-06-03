@@ -12,13 +12,9 @@ namespace AL.Data
     [SerializeField] private string _nameData;
     [Header("Scriptable Object")]
     [SerializeField] private SC_SaveData _playerDat1a;
-    //[SerializeField] private SC_SettingsDataPersisten _settingsData;
-
-    #region Singlenton
-    public static SC_SaveAndLoadPlayerData1 _instance;
-    #endregion
 
     #endregion
+
 
 
     #region UnityCalls
@@ -30,8 +26,7 @@ namespace AL.Data
     #region custom private methods
     void Init()
     {
-      //_settingsData = SC_SettingsDataPersisten._instanceData;
-      _instance = this;
+
     }
     void FirstLoad()
     {
@@ -51,12 +46,12 @@ namespace AL.Data
         file.Close();
       }
 
-      //_settingsData._levelCurrentSave = _playerData._savedLevel;
-      //_settingsData._valueBrightness = _playerData._saveValueBrighnesst;
-      //_settingsData._valuenMusica = _playerData._saveValueMusic;
-      //_settingsData._handLeft = _playerData._saveHandLeft;
-      //_settingsData._ad = _playerData._saveAd;
-      //_settingsData._firstDLC = _playerData._saveFirstDLC;
+      _settingData._levelCurrentSave = _playerDat1a._savedLevel;
+      _settingData._valueBrightness = _playerDat1a._saveValueBrighnesst;
+      _settingData._valuenMusica = _playerDat1a._saveValueMusic;
+      _settingData._handLeft = _playerDat1a._saveHandLeft;
+      _settingData._ad = _playerDat1a._saveAd;
+      _settingData._firstDLC = _playerDat1a._saveFirstDLC;
     }
     #endregion
 

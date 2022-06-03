@@ -26,17 +26,9 @@ namespace AL.UI
     [SerializeField] private GameObject _menuButtonPanel;
     // private bool _loadingPanel;
 
-    //main tools
-    //SC_SettingsDataPersisten _settingsData;
-    //SC_SaveAndLoadPlayerData _saveLoadData;
     #endregion
 
     #region UnityCalls
-    private void Awake()
-    {
-      // _settingsData = SC_SettingsDataPersisten._instanceData;
-     // _saveLoadData = SC_SaveAndLoadPlayerData._instance;
-    }
     void Start()
     {
       //Buttons
@@ -53,11 +45,11 @@ namespace AL.UI
     #region Methods
     private void ToWin()
     {
-      //if (_currentLevel > _settingsData._levelCurrentSave)
-      //{
-      // // _settingsData._levelCurrentSave++;
-      // // _saveLoadData.Save();
-      //}
+      if (_currentLevel > _settingData._levelCurrentSave)
+      {
+        _settingData._levelCurrentSave++;
+        _playerData.Save();
+      }
       _loadingPanel.SetActive(true);
       SceneManager.LoadScene(2);
     }
