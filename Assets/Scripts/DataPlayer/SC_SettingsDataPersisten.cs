@@ -9,9 +9,9 @@ namespace AL.Data
     internal int _levelCurrentSave;
     internal float _valueBrightness;
     internal float _valuenMusica;
-    internal bool _handLeft;
-    internal bool _ad;
-    internal bool _firstDLC;
+    internal bool _ishandLeft;
+    internal bool _isAd;
+    internal bool _isFirstDLC;
     internal bool _isRetorno1;
     internal bool _isRetorno2;
     internal bool _isRetorno3;
@@ -20,7 +20,7 @@ namespace AL.Data
     #endregion
 
     #region Singleton
-    internal SC_SettingsDataPersisten1 _instanceData;
+    internal SC_SettingsDataPersisten1 _instancePersisentData;
     #endregion
 
     #region UnityCalls
@@ -34,15 +34,15 @@ namespace AL.Data
       _levelCurrentSave = _scriptable._savedLevel;
       _valueBrightness = _scriptable._saveValueBrighnesst;
       _valuenMusica = _scriptable._saveValueMusic;
-      _handLeft = _scriptable._saveHandLeft;
+      _ishandLeft = _scriptable._saveHandLeft;
     }
     void Init()
     {
-      if (_instanceData != null)
+      if (_instancePersisentData != null)
         Destroy(gameObject);
       else
       {
-        _instanceData = this;
+        _instancePersisentData = this;
         DontDestroyOnLoad(gameObject);
       }
     }

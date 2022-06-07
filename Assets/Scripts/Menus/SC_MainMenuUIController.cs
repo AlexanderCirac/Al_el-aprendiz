@@ -53,7 +53,7 @@ namespace AL.UI
     #region Methods
     public void ToCloseDLC()
     {
-      _settingData._firstDLC = true;
+      _settingData._isFirstDLC = true;
       _playerData.Save();
       _dLCPanel.SetActive(false);
     }

@@ -55,9 +55,9 @@ namespace AL.Data
       _settingData._levelCurrentSave = _saveData._savedLevel;
       _settingData._valueBrightness = _saveData._saveValueBrighnesst;
       _settingData._valuenMusica = _saveData._saveValueMusic;
-      _settingData._handLeft = _saveData._saveHandLeft;
-      _settingData._ad = _saveData._saveAd;
-      _settingData._firstDLC = _saveData._saveFirstDLC;
+      _settingData._ishandLeft = _saveData._saveHandLeft;
+      _settingData._isAd = _saveData._saveAd;
+      _settingData._isFirstDLC = _saveData._saveFirstDLC;
     }
     void Load()
     {
@@ -72,7 +72,7 @@ namespace AL.Data
       _settingData._levelCurrentSave = _saveData._savedLevel;
       _settingData._valueBrightness = _saveData._saveValueBrighnesst;
       _settingData._valuenMusica = _saveData._saveValueMusic;
-      _settingData._handLeft = _saveData._saveHandLeft;
+      _settingData._ishandLeft = _saveData._saveHandLeft;
     }
     void Delete()
     {
@@ -95,9 +95,9 @@ namespace AL.Data
       _saveData._savedLevel = _settingData._levelCurrentSave;
       _saveData._saveValueBrighnesst = _settingData._valueBrightness;
       _saveData._saveValueMusic = _settingData._valuenMusica;
-      _saveData._saveHandLeft = _settingData._handLeft;
-      _saveData._saveAd = _settingData._ad;
-      _saveData._saveFirstDLC = _settingData._firstDLC;
+      _saveData._saveHandLeft = _settingData._ishandLeft;
+      _saveData._saveAd = _settingData._isAd;
+      _saveData._saveFirstDLC = _settingData._isFirstDLC;
 
       BinaryFormatter bf = new BinaryFormatter();
       FileStream file = File.Create(Application.persistentDataPath + string.Format(".pso", _nameData));
