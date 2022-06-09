@@ -6,7 +6,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_InicioUiController : MonoBehaviour
+    public class SC_InicioUiController : MyMonoBehaviour
     {
           #region Attributes
           [Header("Buttons")]
@@ -16,13 +16,15 @@ namespace AL.UI
           [Header("Setting")]
           [SerializeField] private Image _brightness;
           [SerializeField] private AudioSource _music;
-
-          // Main Tools
-         //  [SerializeField] private SC_SettingsDataPersisten _dataPlayer;
           #endregion
     
           #region UnityCalls
-          void Start()
+          void Awake() => Init();
+          void Update() => ToSettings();
+          #endregion
+
+          #region custom private methods
+          void Init()
           {
               //start game 
               if (Application.targetFrameRate != 60)
@@ -32,27 +34,20 @@ namespace AL.UI
               //OnClick
               _loadButton.onClick.AddListener(ToAnimationButton);
           }
-          private void Update()
-          {
-              ToSettings();
-          }
-          #endregion
-
-          #region Methods
-          private void ToAnimationButton()
+          void ToAnimationButton()
           {
               _panelAnimation.SetActive(true);
               Invoke(nameof(ToLoadLevel),1.2f);
           }
-          private void ToLoadLevel()
+          void ToLoadLevel()
           {
               SceneManager.LoadScene(1);
           }
 
-          private void ToSettings()
+          void ToSettings()
           {
-             // _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer._valueBrightness - 0.1f);
-              //_music.volume = _dataPlayer._valuenMusica;
+              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _settingData._valueBrightness - 0.1f);
+              _music.volume = _settingData._valuenMusica;
           }          
           #endregion
     }
