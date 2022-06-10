@@ -32,7 +32,11 @@ namespace AL.UI
     #endregion
 
     #region UnityCalls
-    private void Start()
+    void Awake() => Init();
+    #endregion
+
+    #region custom private methods
+    void Init()
     {
       //Start game
       Time.timeScale = 1;
@@ -48,10 +52,8 @@ namespace AL.UI
       _creditButton.onClick.AddListener(() => StartCoroutine(CorrutineShowPanel(_creditPanel)));
       _dLCButton.onClick.AddListener(ToCloseDLC);
     }
-    #endregion
 
-    #region Methods
-    public void ToCloseDLC()
+    void ToCloseDLC()
     {
       _settingData._isFirstDLC = true;
       _playerData.Save();
