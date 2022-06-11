@@ -1,10 +1,10 @@
 namespace AL
 {
   using AL.Data;
-  public class SC_GameGeneralMannager : MyMonoBehaviour
+  public class SC_GameGeneralMannager : MyMonoBehaviour1
   {
     #region Attributes
-    internal SC_SettingsDataPersisten1 _settingsDataPersisten;
+    internal SC_SettingsDataPersisten _settingsDataPersisten;
     internal SC_SaveAndLoadPlayerData1 _saveAndLoadPlayerData;
     internal int i;
     internal static SC_GameGeneralMannager _instance;
@@ -20,7 +20,7 @@ namespace AL
     {
       _gameManager.i = 0;
       _instance = this;
-      _settingsDataPersisten = FindObjectOfType<SC_SettingsDataPersisten1>();
+      _settingsDataPersisten = FindObjectOfType<SC_SettingsDataPersisten>();
       _saveAndLoadPlayerData = FindObjectOfType<SC_SaveAndLoadPlayerData1>();
     }
     #endregion

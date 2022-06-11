@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AL.Data
 {
-  public class SC_SettingsDataPersisten1 : MyMonoBehaviour
+  public class SC_SettingsDataPersisten : MyMonoBehaviour1
   {
     #region Attributes
     //Data Settings
@@ -20,7 +20,7 @@ namespace AL.Data
     #endregion
 
     #region Singleton
-    internal SC_SettingsDataPersisten1 _instancePersisentData;
+    internal SC_SettingsDataPersisten _instancePersisentData;
     #endregion
 
     #region UnityCalls

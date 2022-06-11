@@ -8,7 +8,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_InGameUiController : MyMonoBehaviour
+    public class SC_InGameUiController : MyMonoBehaviour1
     {
         #region Attributes
         [Header("int")]

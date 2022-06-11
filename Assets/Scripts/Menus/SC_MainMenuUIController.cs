@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AL.UI
 {
-  public class SC_MainMenuUIController : MyMonoBehaviour
+  public class SC_MainMenuUIController : MyMonoBehaviour1
   {
     #region Attributes
     [Header("Buttons")]
