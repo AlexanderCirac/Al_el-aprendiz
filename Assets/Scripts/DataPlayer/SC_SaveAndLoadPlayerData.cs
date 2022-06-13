@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace AL.Data
 {
 
-  public class SC_SaveAndLoadPlayerData1 : MyMonoBehaviour1
+  public class SC_SaveAndLoadPlayerData1 : MyMonoBehaviour
   {
     #region Attributes
     [Header("Nombre Scriptable")]

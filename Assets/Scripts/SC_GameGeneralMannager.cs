@@ -1,7 +1,7 @@
 namespace AL
 {
   using AL.Data;
-  public class SC_GameGeneralMannager : MyMonoBehaviour1
+  public class SC_GameGeneralMannager : MyMonoBehaviour
   {
     #region Attributes
     internal SC_SettingsDataPersisten _settingsDataPersisten;

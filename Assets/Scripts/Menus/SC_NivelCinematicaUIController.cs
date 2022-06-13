@@ -6,7 +6,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-  public class SC_NivelCinematicaUIController : MyMonoBehaviour1
+  public class SC_NivelCinematicaUIController : MyMonoBehaviour
   {
     #region Attributes
     //[SerializeField] private Button _quitGame;

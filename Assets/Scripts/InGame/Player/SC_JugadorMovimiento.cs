@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_JugadorMovimiento : MonoBehaviour
+public class SC_JugadorMovimiento : SC_PlayerBehaviour
 {
-  public SC_ControlSalto SC_CS;
-  public SC_ControAgachar SC_CA;
 
   public Rigidbody m_rg;
   public GameObject jugador;
@@ -76,7 +74,7 @@ public class SC_JugadorMovimiento : MonoBehaviour
   public void Saltar()
   {
     //m_rg.AddForce ( Vector3.up * m_velocidadSaltar);
-    if (SC_CS.m_boolSalto == true)
+    if (_jumpController.m_boolSalto == true)
     {
 
       m_rg.velocity = Vector3.up * m_velocidadSaltar  ;
@@ -88,7 +86,7 @@ public class SC_JugadorMovimiento : MonoBehaviour
   void Saltarboton()
   {
     //m_rg.AddForce ( Vector3.up * m_velocidadSaltar);
-    if (SC_CS.m_boolSalto == true && Input.GetKeyDown(KeyCode.Space))
+    if (_jumpController.m_boolSalto == true && Input.GetKeyDown(KeyCode.Space))
     {
 
       m_rg.velocity = Vector3.up * m_velocidadSaltar ;
@@ -99,7 +97,7 @@ public class SC_JugadorMovimiento : MonoBehaviour
 
   void ControladorSalto()
   {
-    if(SC_CS.m_boolSalto == false)
+    if(_jumpController.m_boolSalto == false)
     {
       m_tiempo = m_tiempo + 2 * Time.deltaTime;
       // m_tiempo ++;
