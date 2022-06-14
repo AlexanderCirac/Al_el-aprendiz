@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AL.Player;
 
 public class SC_Camera_Seguir_jugador : MonoBehaviour
 {
   // esta script es para seguir al jugador cuando este se desplace
   // esta script es para seguir al jugador cuando este se desplace
-  public SC_JugadorMovimiento SC_J;
+  public SC_PlayerController SC_J;
 
   //variables para seguir jugador
   public GameObject m_camara; // la camara se anclara al objeto o al jugador

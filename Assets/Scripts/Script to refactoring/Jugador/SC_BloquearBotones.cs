@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AL.Player;
 public class SC_BloquearBotones : MonoBehaviour
 {
   //esta script es para bloquear de forma visual ciertos botones, cuando el jugador este agachado e impedir interaccion
@@ -39,7 +39,7 @@ public class SC_BloquearBotones : MonoBehaviour
   public GameObject m_bloqAtaqIzq;
   public GameObject m_bloqAgachadoIzq;
   public SC_ControlSalto SC_CS;
-  public SC_JugadorMovimiento SC_JM;
+  public SC_PlayerController SC_JM;
   void Bloquear()
   {
     if (!m_bloquear)

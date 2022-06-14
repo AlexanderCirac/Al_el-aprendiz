@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AL.Player;
 public class SC_Cambiar_gravedad : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class SC_Cambiar_gravedad : MonoBehaviour
   private float m_velocidadestandar;
   private bool m_gravedad;
   //private bool m_desgravedad;
-  public SC_JugadorMovimiento SC_J;
+  public SC_PlayerController SC_J;
   //public SC_jugadorEfectoDaño SC_JED;
   private float m_velocidadNormal;
   public float m_massa;

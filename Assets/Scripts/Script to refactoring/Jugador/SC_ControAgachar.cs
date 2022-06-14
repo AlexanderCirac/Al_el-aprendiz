@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AL.Player;
 public class SC_ControAgachar : MonoBehaviour
 {
-  public SC_JugadorMovimiento SC_JM;
+  public SC_PlayerController SC_JM;
   // Start is called before the first frame update
   void Start()
     {

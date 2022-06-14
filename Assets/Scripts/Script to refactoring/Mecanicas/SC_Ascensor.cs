@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AL.Player;
 public class SC_Ascensor : MonoBehaviour
 {
 
@@ -22,7 +22,7 @@ public class SC_Ascensor : MonoBehaviour
     
     }
 
-  public SC_JugadorMovimiento SC_JM;
+  public SC_PlayerController SC_JM;
   private void OnTriggerStay(Collider Coll)
   {
     if (Coll.CompareTag("Player"))

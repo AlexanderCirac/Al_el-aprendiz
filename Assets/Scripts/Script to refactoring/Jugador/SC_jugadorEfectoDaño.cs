@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AL.Player;
 public class SC_jugadorEfectoDaño : MonoBehaviour
 {
 
@@ -50,7 +50,7 @@ public class SC_jugadorEfectoDaño : MonoBehaviour
   private Rigidbody m_rg;
   public float m_velocidadMovimiento;
   public float m_velocidadMovimientocaida;
- public SC_JugadorMovimiento SC_J;
+ public SC_PlayerController SC_J;
  
   void EmpujarJugador()
   {
