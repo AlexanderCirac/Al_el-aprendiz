@@ -53,9 +53,9 @@ namespace AL.Player
           }
       }
 
-      public void Saltar()
+      public void Saltar() // Pasar Salto
       {
-        if (_jumpController.m_boolSalto == true)
+        if (_jumpController._isJumping == true)
         {
           m_rg.velocity = Vector3.up * m_velocidadSaltar  ;
           m_tiempo = 0;
@@ -64,18 +64,18 @@ namespace AL.Player
       #endregion
 
       #region custom private methods
-      void Saltarboton()
+      void Saltarboton() //PasarSalto
       {
-        if (_jumpController.m_boolSalto == true && Input.GetKeyDown(KeyCode.Space))
+        if (_jumpController._isJumping == true && Input.GetKeyDown(KeyCode.Space))
         {
           m_rg.velocity = Vector3.up * m_velocidadSaltar ;
           m_tiempo = 0;
         }
       }
 
-      void ControladorSalto()
+      void ControladorSalto() // Pasar Salto
       {
-        if(_jumpController.m_boolSalto == false)
+        if(_jumpController._isJumping == false)
         {
           m_tiempo = m_tiempo + 2 * Time.deltaTime;
             if (m_tiempo > 2)

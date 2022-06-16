@@ -1,96 +1,94 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SC_ControlSalto : MonoBehaviour
+namespace AL.Player
 {
-
-  //[HideInInspector]
-  public bool m_boolSalto;
-
-  [HideInInspector]
-  public bool m_boolAgachar;
-
-  private void Update()
-  {
-    parar();
-    
-  }
-
-  private void OnTriggerStay(Collider col )
-  {
-    
-    if (col.CompareTag("Suelo"))
-    {
-      Desbloquear();
-      m_boolSalto = true;
-      
-    }
-    if (col.CompareTag("Agachado"))
-    {
-      m_boolAgachar = true;
-    }
-  }
-  private void OnTriggerExit(Collider col)
+  public class SC_ControlSalto : MonoBehaviour
   {
 
-    if (col.CompareTag("Suelo"))
+    #region Attributes
+    internal bool _isJumping;
+    [SerializeField] private GameObject m_bloqAtaq1;
+    [SerializeField] private GameObject m_bloqAtaq1Izq;
+    [SerializeField] private GameObject m_agacharder1;
+    [SerializeField] private GameObject m_agacharizq1;
+    internal  bool _isDucking;
+    #endregion
+
+    #region  Unity Calls
+    void OnTriggerStay(Collider col)
     {
-      m_boolSalto = false;
-      bloquear();
-      m_contador = 0;
+
+      if (col.CompareTag("Suelo"))
+      {
+        Desbloquear();
+        _isJumping = true;
+
+      }
+      if (col.CompareTag("Agachado"))
+      {
+        _isDucking = true;
+      }
     }
-    if (col.CompareTag("Agachado"))
+    void OnTriggerExit(Collider col)
     {
-      m_boolAgachar = false;
+
+      if (col.CompareTag("Suelo"))
+      {
+        _isJumping = false;
+        bloquear();
+        m_contador = 0;
+      }
+      if (col.CompareTag("Agachado"))
+      {
+        _isDucking = false;
+      }
     }
+    #endregion
+
+    #region custom public methods
+    public int m_contador;
+    public void contador()
+    {
+      if (_isJumping)
+      {
+        m_contador++;
+      }
+    }
+
+    void parar() // pasar controlador del salto
+    {
+      if (m_contador > 0)
+      {
+        _isJumping = false;
+        m_contador = 0;
+      }
+    }
+    #endregion
+
+    #region custom private methods
+    void bloquear()
+    {
+      if (m_bloqAtaq1Izq != null)
+      {
+        m_bloqAtaq1.SetActive(true);
+        m_bloqAtaq1Izq.SetActive(true);
+
+      }
+      m_agacharder1.SetActive(true);
+      m_agacharizq1.SetActive(true);
+    }
+
+
+    void Desbloquear()
+    {
+      m_agacharder1.SetActive(false);
+      if (m_bloqAtaq1Izq != null)
+      {
+        m_bloqAtaq1.SetActive(false);
+        m_bloqAtaq1Izq.SetActive(false);
+      }
+      m_agacharizq1.SetActive(false);
+    }
+    #endregion
   }
-
-  public int m_contador;
-  public void contador()
-  {
-    if (m_boolSalto)
-    {
-      m_contador++;
-    }
-  }
-
-  void parar()
-  {
-    if (m_contador > 0)
-    {
-      m_boolSalto = false;
-      m_contador = 0;
-    }
-  }
-
-
-  public GameObject m_bloqAtaq1;
-  public GameObject m_bloqAtaq1Izq;
-  public GameObject m_agacharder1;
-  public GameObject m_agacharizq1;
-  void bloquear()
-  {
-    if (m_bloqAtaq1Izq != null)
-    {
-      m_bloqAtaq1.SetActive(true);
-      m_bloqAtaq1Izq.SetActive(true);
-
-    }
-    m_agacharder1.SetActive(true);
-    m_agacharizq1.SetActive(true);
-  }
-
-
-  void Desbloquear()
-  {
-    m_agacharder1.SetActive(false);
-    if (m_bloqAtaq1Izq != null)
-    {
-      m_bloqAtaq1.SetActive(false);
-      m_bloqAtaq1Izq.SetActive(false);
-    }
-    m_agacharizq1.SetActive(false);
-  }
-
 }

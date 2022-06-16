@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AL.Player;
 
 public class SC_jugadorFisicas : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class SC_jugadorFisicas : MonoBehaviour
   public PhysicMaterial m_PM;
   void controlfisicas()
   {
-    if (SC_CA.m_boolSalto == false)
+    if (SC_CA._isJumping == false)
     {
       m_PM.dynamicFriction = 0.1f;
     }
