@@ -9,7 +9,7 @@ namespace AL.Player
     {
         #region Attributes
         internal static SC_PlayerManager _instance;
-        internal SC_ControlSalto _controlSalto;
+        internal SC_JumpController _controlSalto;
         internal SC_ControAgachar _controlAgachar;
         #endregion
 
@@ -21,7 +21,7 @@ namespace AL.Player
         private void Init()
         {
           _instance = this;
-          _controlSalto = FindObjectOfType<SC_ControlSalto>();
+          _controlSalto = FindObjectOfType<SC_JumpController>();
           _controlAgachar = FindObjectOfType<SC_ControAgachar>();
         }
 

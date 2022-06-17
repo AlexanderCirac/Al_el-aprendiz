@@ -19,7 +19,6 @@ namespace AL.Player
       #endregion
 
       #region Unity Calls
-      void Update() => Saltarboton();
       #endregion
       
       #region custom public methods
@@ -53,37 +52,6 @@ namespace AL.Player
           }
       }
 
-      public void Saltar() // Pasar Salto
-      {
-        if (_jumpController._isJumping == true)
-        {
-          m_rg.velocity = Vector3.up * m_velocidadSaltar  ;
-          m_tiempo = 0;
-        }
-      }
-      #endregion
-
-      #region custom private methods
-      void Saltarboton() //PasarSalto
-      {
-        if (_jumpController._isJumping == true && Input.GetKeyDown(KeyCode.Space))
-        {
-          m_rg.velocity = Vector3.up * m_velocidadSaltar ;
-          m_tiempo = 0;
-        }
-      }
-
-      void ControladorSalto() // Pasar Salto
-      {
-        if(_jumpController._isJumping == false)
-        {
-          m_tiempo = m_tiempo + 2 * Time.deltaTime;
-            if (m_tiempo > 2)
-            {
-              m_rg.velocity = Vector3.down * (m_velocidadSaltar/1.1f);
-            }
-        }
-      }
       #endregion
   }
 }

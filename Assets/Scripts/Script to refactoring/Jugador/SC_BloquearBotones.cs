@@ -38,7 +38,7 @@ public class SC_BloquearBotones : MonoBehaviour
   public GameObject m_bloqSaltIzq;
   public GameObject m_bloqAtaqIzq;
   public GameObject m_bloqAgachadoIzq;
-  public SC_ControlSalto SC_CS;
+  public SC_JumpController SC_CS;
   public SC_PlayerController SC_JM;
   void Bloquear()
   {

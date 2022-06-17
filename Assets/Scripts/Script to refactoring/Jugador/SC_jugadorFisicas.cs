@@ -22,7 +22,7 @@ public class SC_jugadorFisicas : MonoBehaviour
     controlfisicas();
     }
 
-  public SC_ControlSalto SC_CA;
+  public SC_JumpController SC_CA;
   public PhysicMaterial m_PM;
   void controlfisicas()
   {
