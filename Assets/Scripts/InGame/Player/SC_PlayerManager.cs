@@ -10,7 +10,7 @@ namespace AL.Player
         #region Attributes
         internal static SC_PlayerManager _instance;
         internal SC_JumpController _controlSalto;
-        internal SC_ControAgachar _controlAgachar;
+        internal SC_DuckController _controlAgachar;
         #endregion
 
         #region Unity Calls
@@ -22,7 +22,7 @@ namespace AL.Player
         {
           _instance = this;
           _controlSalto = FindObjectOfType<SC_JumpController>();
-          _controlAgachar = FindObjectOfType<SC_ControAgachar>();
+          _controlAgachar = FindObjectOfType<SC_DuckController>();
         }
 
         #endregion

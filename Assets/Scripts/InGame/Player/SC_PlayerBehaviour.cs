@@ -9,6 +9,6 @@ namespace AL.Player
     {
       protected SC_PlayerManager _playerManager => SC_PlayerManager._instance;
       protected SC_JumpController _jumpController => _playerManager._controlSalto;
-      protected SC_ControAgachar _duckController=> _playerManager._controlAgachar;
+      protected SC_DuckController _duckController=> _playerManager._controlAgachar;
     }
 }

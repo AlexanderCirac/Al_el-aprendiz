@@ -12,8 +12,6 @@ namespace AL.Player
       public float m_velocidadMovimiento;
       public float m_velocidadSaltar;
      
-      float m_tiempo;
-
       //estas funciones son para activare el movimiento durante el ascensor
       internal bool m_ascensor;
       #endregion
@@ -24,8 +22,6 @@ namespace AL.Player
       #region custom public methods
       public void MoverDercha()
       {
-
-       
           if (!m_ascensor)
           {
             m_rg.MovePosition(new Vector3(jugador.transform.position.x + m_velocidadMovimiento * Time.deltaTime, jugador.transform.position.y, jugador.transform.position.z));
@@ -34,14 +30,10 @@ namespace AL.Player
           {
             jugador.transform.position = new Vector3(jugador.transform.position.x +( (m_velocidadMovimiento / 2) * Time.deltaTime), jugador.transform.position.y, jugador.transform.position.z);
           }
-    
-
       }
 
       public void MoverIzquierda()
       {
-
-
           if (!m_ascensor)
           {
             m_rg.MovePosition(new Vector3(jugador.transform.position.x - m_velocidadMovimiento * Time.deltaTime, jugador.transform.position.y, jugador.transform.position.z));// form
