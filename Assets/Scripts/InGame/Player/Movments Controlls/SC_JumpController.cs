@@ -14,14 +14,10 @@ namespace AL.Player
     /// </summary>
     //[SerializeField] private GameObject m_bloqAtaq1;
     //[SerializeField] private GameObject m_bloqAtaq1Izq;
-    //[SerializeField] private GameObject _duckRight;
-    //[SerializeField] private GameObject _duckLeft;
-    //internal  bool _isDucking;
     [SerializeField] private float _jampVelocity;
     [SerializeField] private Rigidbody m_rg;
     [SerializeField] private Button _jumpRightButton;
     [SerializeField] private Button _jumpLeftButton;
-    float m_tiempo;
     #endregion
 
     #region  Unity Calls
