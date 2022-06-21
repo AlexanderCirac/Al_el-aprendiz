@@ -1,5 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AL.Life
 {
@@ -8,47 +9,29 @@ namespace AL.Life
     {
 
           #region Attributes 
-          public GameObject m_pregunta;
-          public SC_Vida SC_V;
-          private bool m_mori;
+          [SerializeField] GameObject m_pregunta;
+          [SerializeField] Button _quitButton;
+          [SerializeField] Button _repitLevelButton;
           #endregion
 
           #region UnityCalls
-
-          // Start is called before the first frame update
-          void Start()
-          {
-          m_pregunta.SetActive(false);
-          }
-
-          // Update is called once per frame
-          void Update()
-          {
-            Morir();
-          }
+          void Awake() => Init();
           #endregion
 
           #region Custom private methods
-          void Morir()
+          void Init()
           {
-            if (SC_V.m_vida <= 0 || m_mori == true)
-            {
+              m_pregunta.SetActive(false);
+              _quitButton.onClick.AddListener(Salir);
+              _repitLevelButton.onClick.AddListener(Reinciar);
+          }
+          void Morir() // añadir mediante un evento
+          {
               m_pregunta.SetActive(true);
               Time.timeScale = 0;
-            }
-    
           }
-
-        public void Salir()
-        {
-          Application.Quit();
-        }
-
-        public void Reinciar(int m_nivel)
-        {
-          //Application.LoadLevel(m_nivel);
-          SceneManager.LoadScene(m_nivel);
-        }
+          void Salir() => Application.Quit();
+          void Reinciar() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
           #endregion
     }
 }
