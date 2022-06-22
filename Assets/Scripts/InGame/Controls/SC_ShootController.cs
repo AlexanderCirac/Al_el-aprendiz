@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SC_Disparar : MonoBehaviour
+public class SC_ShootController : MonoBehaviour
 {
-
+  #region Attribute
   public GameObject m_balaDer;
   public GameObject m_balaIzq;
   public GameObject m_disparadorDer;
@@ -13,6 +11,21 @@ public class SC_Disparar : MonoBehaviour
   public bool m_dispararJugador;
   public bool m_proyectil;
 
+  private bool m_dispararDer = true;
+  private bool m_dispararIzq;
+  #endregion
+
+  #region UnityCalls
+  private void Update()
+  {
+    if (m_proyectil)
+    {
+      Invoke("descativar", 0.49f); // reactivamos funcion de disparar
+    }
+  }
+  #endregion
+
+  #region custom private methods
   public void Disparar()
   {
     if (!m_dispararJugador && !m_proyectil ) {
@@ -21,8 +34,6 @@ public class SC_Disparar : MonoBehaviour
     }
   }
 
-  private bool m_dispararDer = true;
-  private bool m_dispararIzq;
   public void dispararDerecha()
   {
     m_dispararDer = true ;
@@ -32,13 +43,6 @@ public class SC_Disparar : MonoBehaviour
   {
     m_dispararIzq = true;
     m_dispararDer = false;
-  }
-  private void Update()
-  {
-    if (m_proyectil)
-    {
-      Invoke("descativar", 0.49f); // reactivamos funcion de disparar
-    }
   }
 
   void disparar1() // creamos la bala
@@ -62,4 +66,5 @@ public class SC_Disparar : MonoBehaviour
     m_dispararJugador = false;
   }
   
+  #endregion
 }
