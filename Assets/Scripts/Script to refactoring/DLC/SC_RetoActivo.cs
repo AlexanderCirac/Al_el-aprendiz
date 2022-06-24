@@ -81,7 +81,7 @@ public class SC_RetoActivo : MonoBehaviour
   public GameObject m_dialogo1;
   public void HasPerdido()
   {
-    m_jugador.GetComponent<SC_Vida>().m_vida --;
+    m_jugador.GetComponent<SC_LifeController>().m_vida --;
     if (m_dialogo != null)
     {
 

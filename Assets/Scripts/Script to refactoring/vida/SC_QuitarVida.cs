@@ -6,7 +6,7 @@ public class SC_QuitarVida : MonoBehaviour
 {
   //esta scritp al chocar contra el jugador le restara un punto de vida
 
-  public SC_Vida SC_V;
+  public SC_LifeController SC_V;
   public int m_quitarVida;
 
 

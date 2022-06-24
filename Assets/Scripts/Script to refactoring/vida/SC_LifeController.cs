@@ -1,30 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SC_Vida : MonoBehaviour
+public class SC_LifeController : MonoBehaviour
 {
-  //De esta forma podemos poner una array de sprites, con una contador de vida actual
-  // que controlara de forma atomaticamente los sprites activando y descativando los 
-  //correspondientes
 
+  #region Attribute
   public GameObject[] m_SpriteVida;
   public int m_vida = 3;
   private int m_vidaguardado;
   private bool m_ponerVida;
   private int m_quitadoGuardado;
   private bool m_quitarVida;
+  #endregion
+
+  #region Unity Calls
+
   // Start is called before the first frame update
   void Start()
-    {
+  {
 
-    }
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ControladorSprite();
-    }
+  // Update is called once per frame
+  void Update()
+  {
+    ControladorSprite();
+  }
+  #endregion
+
+  #region custom public methods
+  #endregion
+
+  #region custom private methods
   void ControladorSprite()
   {
     ////No funciona bien porque esta leeiendo todo el rato el for y eso
@@ -82,6 +88,7 @@ public class SC_Vida : MonoBehaviour
       m_quitarVida = false;
     }
   }
+  #endregion
 }
 
 
