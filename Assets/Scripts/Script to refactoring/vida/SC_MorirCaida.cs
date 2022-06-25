@@ -10,7 +10,7 @@ public class SC_MorirCaida : MonoBehaviour
   {
     if (col.CompareTag("Player"))
     {
-      col.gameObject.GetComponent<SC_LifeController>().m_vida = 0;
+      //col.gameObject.GetComponent<SC_LifeController>().m_vida = 0;
     }
   }
 }

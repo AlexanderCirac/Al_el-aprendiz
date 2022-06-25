@@ -6,7 +6,7 @@ public class SC_QuitarVida : MonoBehaviour
 {
   //esta scritp al chocar contra el jugador le restara un punto de vida
 
-  public SC_LifeController SC_V;
+  //public SC_LifeController SC_V;
   public int m_quitarVida;
 
 
@@ -19,10 +19,10 @@ public class SC_QuitarVida : MonoBehaviour
    
     if (col.CompareTag("Player"))
     {
-      if (SC_V.m_vida > 0)
-      {
-        SC_V.m_vida = SC_V.m_vida - m_quitarVida;
-      }
+      //if (SC_V.m_vida > 0)
+      //{
+      //  SC_V.m_vida = SC_V.m_vida - m_quitarVida;
+      //}
       m_activarContador = true;
     }
   }
