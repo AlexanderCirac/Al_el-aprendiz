@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AL.Player;
 
 public class SC_ControlAnimacion : MonoBehaviour
 {
@@ -8,12 +9,12 @@ public class SC_ControlAnimacion : MonoBehaviour
   public GameObject m_anAterrizar;
   //esta script es para controlar las animaciones que realizara el personae segun la situacion
 
-  public SC_AnimacionControl SC_AC;
+  public SC_PlayerAnimController SC_AC;
   // Update is called once per frame
 
   private void Start()
   {
-    SC_AC = this.gameObject.GetComponent<SC_AnimacionControl>();
+    SC_AC = this.gameObject.GetComponent<SC_PlayerAnimController>();
   }
   void Update()
     {
