@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using AL.Player;
+//using AL.Player;
 
 public class SC_ControlAnimacion : MonoBehaviour
 {
@@ -9,12 +9,12 @@ public class SC_ControlAnimacion : MonoBehaviour
   public GameObject m_anAterrizar;
   //esta script es para controlar las animaciones que realizara el personae segun la situacion
 
-  public SC_PlayerAnimController SC_AC;
+ // public SC_PlayerAnimController SC_AC;
   // Update is called once per frame
 
   private void Start()
   {
-    SC_AC = this.gameObject.GetComponent<SC_PlayerAnimController>();
+    //SC_AC = this.gameObject.GetComponent<SC_PlayerAnimController>();
   }
   void Update()
     {
@@ -67,24 +67,24 @@ public class SC_ControlAnimacion : MonoBehaviour
   }
   void AnimacionCaminar()
   {
-    //Animacion caminar
-    if ( !SC_AC.m_boolanimacion && !SC_AC.m_boolagachar && !SC_AC.m_boolsalto1 && !m_boolAtaquer /*!m_Boolagachar*/) {
-      if (!m_caminar)
-      {
-        m_anIdle.SetActive(true);
-        m_anCaminar.SetActive(false);
-      }
-      else
-      {
-        m_anIdle.SetActive(false);
-        m_anCaminar.SetActive(true);
-      }
-    }
-    else
-    {
-      m_anIdle.SetActive(false);
-      m_anCaminar.SetActive(false);
-    }
+    ////Animacion caminar
+    //if ( !SC_AC.m_boolanimacion && !SC_AC.m_boolagachar && !SC_AC.m_boolsalto1 && !m_boolAtaquer /*!m_Boolagachar*/) {
+    //  if (!m_caminar)
+    //  {
+    //    m_anIdle.SetActive(true);
+    //    m_anCaminar.SetActive(false);
+    //  }
+    //  else
+    //  {
+    //    m_anIdle.SetActive(false);
+    //    m_anCaminar.SetActive(true);
+    //  }
+    //}
+    //else
+    //{
+    //  m_anIdle.SetActive(false);
+    //  m_anCaminar.SetActive(false);
+    //}
   }
 
   //ataque

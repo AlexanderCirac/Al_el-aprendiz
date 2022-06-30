@@ -1,92 +1,49 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 namespace AL.Player
 {
-  public class SC_PlayerAnimController : MonoBehaviour
+  public class SC_PlayerAnimController : SC_PlayerBehaviour
   {
 
       #region Attribute
-    public GameObject m_animacionSalto;
-   [HideInInspector]
-    public bool m_boolanimacion;
-    private bool m_boolsalto;
-    [HideInInspector]
-    public bool m_boolsalto1;
-    [HideInInspector]
-    public bool m_boolagachar;
-    private float m_tiempo;
-    public GameObject m_caida;
-    #endregion
+      [SerializeField] GameObject _jumpAnim;
+      private float m_tiempo;
+      [SerializeField] GameObject _fallJampAnim;
+      #endregion
 
       #region UnityCall
-      // Start is called before the first frame update
-      void Start()
-      {
-
-      }
-
-      // Update is called once per frame
-      void Update()
-      {
-        SaltoAnimacionCaida();
-      }
 
 
       void OnTriggerEnter(Collider coll)
       {
         if (coll.CompareTag("Suelo"))
-        {
-          m_animacionSalto.SetActive(false);
-          m_boolsalto1 = false;
-        }
-
-        if (m_boolsalto && coll.CompareTag("Suelo"))
-        {
-          m_boolagachar = true;
-        }
+            if(_jumpAnim.activeSelf)
+                StartCoroutine(FallJumpAnim());
       }
 
       void OnTriggerExit(Collider coll)
       {
         if (coll.CompareTag("Suelo"))
-        {
-          m_animacionSalto.SetActive(true);
-          m_boolanimacion = true;
-          m_boolsalto1 = true;
-        }
-      }
-      public void ActivarSalto()
-      {
-        m_boolsalto = true;
-
+            JumpAnim();
       }
       #endregion
 
       #region custom private methods
-
-    void SaltoAnimacionCaida()
-    {
-      if (m_boolagachar)
+      void JumpAnim()
       {
-        m_tiempo += 1 * Time.deltaTime;
-
-        if (m_tiempo < 0.3f)
-        {
-          m_caida.SetActive(true);
-        }      
-        else
-        {
-          m_caida.SetActive(false);
-          m_boolanimacion = false;
-          m_boolagachar = false;
-        
-        }
-      }
-      else
+        _jumpAnim.SetActive(false);
+        _fallJampAnim.SetActive(true);
+      }     
+      IEnumerator FallJumpAnim()
       {
-        m_tiempo = 0;
-      }
-    }
+         
+          _fallJampAnim.SetActive(true);
+          _jumpAnim.SetActive(false);
+          yield return new WaitForSeconds(0.1f);
+           _fallJampAnim.SetActive(false);
+      } 
       #endregion
   
   
