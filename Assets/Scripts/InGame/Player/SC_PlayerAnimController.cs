@@ -8,9 +8,18 @@ namespace AL.Player
   {
 
       #region Attribute
+      //Sprite with anim
       [SerializeField] GameObject _jumpAnim;
-      private float m_tiempo;
       [SerializeField] GameObject _fallJampAnim;
+      [SerializeField] GameObject _walkAnim;
+      [SerializeField] GameObject _idleAnim;
+      [SerializeField] GameObject _shootAnim;
+      //buttons to activate anim
+      
+      [SerializeField] Button _jumpAnimButton;
+      [SerializeField] Button _walkAnimButton;
+      [SerializeField] Button _shootAnimButton;
+
       #endregion
 
       #region UnityCall
