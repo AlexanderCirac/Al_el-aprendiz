@@ -4,12 +4,12 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SC_Modelo_Distancia : MonoBehaviour {
+public class SC_ModelDistanceController : MonoBehaviour {
 
   //Idea; Esta script es para que cambie la aprencia del modelo segun la distancia del jugador.
 
   [HideInInspector]
-  public SC_Controlador_Distancia_jugador SC_CDJ;
+  public SC_ModelDistanceManager SC_CDJ;
 
 
 
@@ -54,7 +54,7 @@ public class SC_Modelo_Distancia : MonoBehaviour {
   {
     if (SC_CDJ == null) {
 
-      SC_CDJ = FindObjectOfType<SC_Controlador_Distancia_jugador>();
+      SC_CDJ = FindObjectOfType<SC_ModelDistanceManager>();
     }
 
     if(m_Objeto_base == null)

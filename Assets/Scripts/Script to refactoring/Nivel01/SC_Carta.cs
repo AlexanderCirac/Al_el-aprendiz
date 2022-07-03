@@ -87,7 +87,7 @@ public class SC_Carta : MonoBehaviour
   //esta parte es para ir desbloqueando la cantidad de objetos del nivel
   //para no sobrecargar
 
-  public SC_Controlador_Distancia_jugador SC_CDJ;
+  public SC_ModelDistanceManager SC_CDJ;
   private bool m_doTwo;
   void AñadidoExtra()
   {

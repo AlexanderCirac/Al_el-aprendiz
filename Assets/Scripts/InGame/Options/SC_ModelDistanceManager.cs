@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_Controlador_Distancia_jugador : MonoBehaviour {
+public class SC_ModelDistanceManager : MonoBehaviour {
   // Idea: Esta scritp es para colocar los datos universales distancia para todos los objetos.
   //descripcion: Lo que se ponde son numeros para definir a todos los objetos ( de forma universal) que tiene la script SC_Modelo_distacia_Jugador cual seria la distancia
   //correcta para que se pongan sus mallas o que desaparezcan
