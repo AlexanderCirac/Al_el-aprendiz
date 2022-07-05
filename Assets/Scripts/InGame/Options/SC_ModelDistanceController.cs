@@ -3,118 +3,47 @@
 namespace AL.Options
 {
 
-public class SC_ModelDistanceController : MonoBehaviour {
+  public class SC_ModelDistanceController : MonoBehaviour
+  {
 
-  //Idea; Esta script es para que cambie la aprencia del modelo segun la distancia del jugador.
+    //Idea; Esta script es para que cambie la aprencia del modelo segun la distancia del jugador.
 
-  #region Attribute
-  SC_ModelDistanceManager _modelDistanceManager => FindObjectOfType<SC_ModelDistanceManager>();
-  [System.Serializable]
-  public class c_Mallas{
+    #region Attribute
+    SC_ModelDistanceManager _modelDistanceManager => FindObjectOfType<SC_ModelDistanceManager>();
+    [System.Serializable]
+    public class c_Mallas
+    {
 
-    public Mesh m_Malla_Baja;
-    public Mesh m_Malla_Alta;
+      public Sprite m_Malla_Baja;
+      public Sprite m_Malla_Alta;
+    }
+    public c_Mallas _malla = new c_Mallas();
+    #endregion
+
+
+    #region UnityCalls
+    void Update() => ToCheckDistance();
+    #endregion
+
+    #region custom private methods
+    void ToCheckDistance()
+    {
+      if (_modelDistanceManager.m_Jugador.transform.position.y < _modelDistanceManager.m_Distancia_ParaMallaAlta)
+      {
+        this.gameObject.SetActive(false);
+      }
+      else
+      {
+        this.gameObject.SetActive(true);
+        if (_modelDistanceManager.m_Jugador.transform.position.y > _modelDistanceManager.m_Distancia_ParaMallaBaja && _modelDistanceManager.m_Jugador.transform.position.y < _modelDistanceManager.m_Distancia_ParaMallaAlta)
+            if(_malla.m_Malla_Baja)
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = _malla.m_Malla_Baja;
+        else
+            if(_malla.m_Malla_Alta)
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = _malla.m_Malla_Alta;
+
+      }
+    }
+    #endregion
   }
-  public c_Mallas _malla = new c_Mallas();
-  #endregion
-
-  
- 
-
-
-
-  
-
-
-
-  //// Update is called once per frame
-  //void Update () {
-
-  //  LeerScript();
-  //  if (m_Objeto_base != null)
-  //  {
-  //  }
-
-  //  LeerDistanciaMesh();
-  //}
-
-
-  //void LeerScript()
-  //{
-  //  if (SC_CDJ == null) {
-
-  //    SC_CDJ = FindObjectOfType<SC_ModelDistanceManager>();
-  //  }
-
-  //  if(m_Objeto_base == null)
-  //  {
-  //   m_Objeto_base = this.gameObject;
-     
-  //  }
-
-
-  //}
-  //void LeerDistanciaMesh()
-  //{
-  //  //calcular la distancia entre objeto base y el jugador
-  //  m_distancia = new Vector2 (SC_CDJ.m_Jugador.transform.position.x - m_Objeto_base.gameObject.transform.position.x, SC_CDJ.m_Jugador.transform.position.y - m_Objeto_base.gameObject.transform.position.y); // cogemos el vector 2
-  //  //transformamos el vector 2 en un float y sacamos la distancia, siempre positivo (Mathf.Abs)
-  //  m_Distancia_Total = Mathf.Abs(m_distancia.sqrMagnitude);
-
-  //  // si esta fuera del rango desaparecera y sino estara activo
-  //  if (m_Distancia_Total > SC_CDJ.m_Distancia_ParaOcutarse)
-  //  {
-  //    if (m_Numero1 != 1) {//tiene un 1 para terminar la lectura y no este leyendo todo el rato
-  //      //m_Objeto_base.GetComponent<MeshRenderer>().enabled = false;
-  //      //m_Objeto_base.GetComponent<Collider>().enabled = false;
-  //      //esta es otra forma de ocultar un objeto de atrabes de los hijos
-  //      this.transform.GetChild(0).gameObject.SetActive(false);
-  //      m_Numero1 = 1;
-  //    }
-  //  }
-  //  else
-  //  {
-  //    if (m_Numero1 != 2)
-  //    {//tiene un 1 para terminar la lectura y no este leyendo todo el rato
-  //      //m_Objeto_base.GetComponent<MeshRenderer>().enabled = true;
-  //      //m_Objeto_base.GetComponent<Collider>().enabled = true;
-  //      this.transform.GetChild(0).gameObject.SetActive(true);
-  //      m_Numero1 = 2;
-  //    }
-  //  }
-
-  //  // si esta fuera del rango se pondra la malla de calidad baja
-  //    //cogera los datos personalizados
-  //  if ( Mallas.m_Malla_Baja != null && m_Numero != 3 && Mallas.m_Distancia_ParaMallaBaja_Personalizada != 0 && m_Distancia_Total > Mallas.m_Distancia_ParaMallaBaja_Personalizada && m_Distancia_Total < SC_CDJ.m_Distancia_ParaOcutarse)
-  //  {
-  //    m_Objeto_base.GetComponent<MeshFilter>().mesh = Mallas.m_Malla_Baja;
-  //    m_Numero = 3;
-  //  }
-  //  else //Cogera los datos del controlador general
-  //  {
-  //    if (Mallas.m_Malla_Baja != null && m_Numero != 3 && m_Distancia_Total > SC_CDJ.m_Distancia_ParaMallaBaja && m_Distancia_Total < SC_CDJ.m_Distancia_ParaOcutarse){
-  //      m_Objeto_base.GetComponent<MeshFilter>().mesh = Mallas.m_Malla_Baja;
-  //      m_Numero = 3;
-  //    }
-  //  }
-
-  //  // si esta fuera del rango se pondra la malla de calidad baja
-  //    //cogera los datos personalizados
-  //  if (Mallas.m_Malla_Alta != null && Mallas.m_Distancia_ParaMallaAlta_Personalizada != 0 && m_Numero != 4 && m_Distancia_Total < Mallas.m_Distancia_ParaMallaBaja_Personalizada && m_Distancia_Total > Mallas.m_Distancia_ParaMallaAlta_Personalizada)
-  //  {
-  //    m_Objeto_base.GetComponent<MeshFilter>().mesh = Mallas.m_Malla_Alta;
-  //    m_Numero = 4;
-  //  }
-  //  else//Cogera los datos del controlador general
-  //  {
-  //    if (Mallas.m_Malla_Alta != null && m_Numero != 4 && m_Distancia_Total < SC_CDJ.m_Distancia_ParaMallaBaja && m_Distancia_Total > SC_CDJ.m_Distancia_ParaMallaAlta)
-  //    {
-  //      m_Objeto_base.GetComponent<MeshFilter>().mesh = Mallas.m_Malla_Alta;
-  //      m_Numero = 4;
-  //    }
-  //  }
-  //}
-
- 
-}
 }

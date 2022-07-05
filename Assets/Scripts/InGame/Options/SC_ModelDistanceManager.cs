@@ -5,9 +5,9 @@ using UnityEngine;
 public class SC_ModelDistanceManager : MonoBehaviour {
 
   #region Attribute
-  [SerializeField] GameObject m_Jugador;
-  [SerializeField] float      m_Distancia_ParaOcutarse;
-  [SerializeField] float      m_Distancia_ParaMallaBaja;
-  [SerializeField] float      m_Distancia_ParaMallaAlta;
+  public GameObject m_Jugador;
+  public float      m_Distancia_ParaOcutarse;
+  public float      m_Distancia_ParaMallaBaja;
+  public float      m_Distancia_ParaMallaAlta;
   #endregion
 }
