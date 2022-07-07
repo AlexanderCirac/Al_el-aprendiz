@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AL.InGame;
 
 public class SC_MantenerPulsado : MonoBehaviour
 {
@@ -24,6 +25,6 @@ public class SC_MantenerPulsado : MonoBehaviour
 
     public void MantenerPulsado()
     {
-      SC_C.m_dotwo = SC_UI.IsHolding;
+     // SC_C.m_dotwo = SC_UI.IsHolding;
     }
 }
