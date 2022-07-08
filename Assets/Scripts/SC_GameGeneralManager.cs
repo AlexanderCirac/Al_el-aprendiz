@@ -1,13 +1,13 @@
 namespace AL
 {
   using AL.Data;
-  public class SC_GameGeneralMannager : MyMonoBehaviour
+  public class SC_GameGeneralManager : MyMonoBehaviour
   {
     #region Attributes
     internal SC_SettingsDataPersisten _settingsDataPersisten;
     internal SC_SaveAndLoadPlayerData1 _saveAndLoadPlayerData;
     internal int i;
-    internal static SC_GameGeneralMannager _instance;
+    internal static SC_GameGeneralManager _instance;
 
     #endregion
 
