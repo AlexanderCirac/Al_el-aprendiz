@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AL
 {
   using AL.Data;
-  public class MyMonoBehaviour : MonoBehaviour
+  public class ALBehaviour : MonoBehaviour
   {
 
     protected SC_GameGeneralManager _gameManager => SC_GameGeneralManager._instance;

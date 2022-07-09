@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SC_Zurdo : MonoBehaviour
 {
-  public SC_Lector_Datos_BrilloYsonido SC_DB;
+  public SC_BrightAndSoundData SC_DB;
   //esta script es para activar el  lado derecho o izquierdo
 
   // Start is called before the first frame update

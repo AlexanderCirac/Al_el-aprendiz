@@ -1,7 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using AL.Data;
-public class SC_Lector_Datos_BrilloYsonido : MonoBehaviour {
+public class SC_BrightAndSoundData : MonoBehaviour {
 
 
   // en esta script leeremos los datos.

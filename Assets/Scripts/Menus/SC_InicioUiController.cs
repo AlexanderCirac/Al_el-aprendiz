@@ -6,7 +6,7 @@ using AL.Data;
 
 namespace AL.UI
 {
-    public class SC_InicioUiController : MyMonoBehaviour
+    public class SC_InicioUiController : ALBehaviour
     {
           #region Attributes
           [Header("Buttons")]

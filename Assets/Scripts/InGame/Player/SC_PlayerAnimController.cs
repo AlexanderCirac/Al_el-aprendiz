@@ -23,7 +23,7 @@ namespace AL.Player
       #endregion
 
       #region UnityCall
-
+       void Start() => Init();
 
       void OnTriggerEnter(Collider coll)
       {
@@ -44,6 +44,19 @@ namespace AL.Player
       {
         _jumpAnim.SetActive(false);
         _fallJampAnim.SetActive(true);
+      }      
+      void AttackBeggin()
+      {
+          _shootAnim.SetActive(true);
+          _idleAnim.SetActive(false);
+          Invoke(nameof(AttackEnding),.9f);
+          
+      }       
+      void AttackEnding()
+      {
+          _shootAnim.SetActive(false);
+          _idleAnim.SetActive(true);
+          
       }     
       IEnumerator FallJumpAnim()
       {
@@ -53,6 +66,12 @@ namespace AL.Player
           yield return new WaitForSeconds(0.1f);
            _fallJampAnim.SetActive(false);
       } 
+
+      void Init()
+      {
+         _jumpAnimButton.onClick.AddListener(JumpAnim);
+         _shootAnimButton.onClick.AddListener(AttackBeggin);
+      }
       #endregion
   
   
