@@ -1,100 +1,52 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class SC_PuaseController : MonoBehaviour
+namespace AL.InGame.UI
 {
-  #region Attributes
-  [HideInInspector]
-  public bool m_AbrirMenu;
 
-  public GameObject m_interfazJuego;
-  public GameObject m_menuPausa;
-  private bool m_enmarcha;
-  private float m_tiempo;
-  public Animator m_animacionBotonGeneral;
-  //esto es para activar animacion del menu pausa
 
-  public GameObject m_animacion_Desplegable;
-  public GameObject m_animacion_Plegable;
-  #endregion
-
-  #region UnityCalls
-  private void Update()
+  public class SC_PuaseController : MonoBehaviour
   {
-    MenuPausa();
-    controlador();
-  }
-  #endregion
+    #region Attributes
+    [HideInInspector]
+    [SerializeField] Button _pauseButton;
+    //Anim
+    [SerializeField] GameObject _pauseCloseAnim;
+    [SerializeField] GameObject _pauseOpenAnim;
+    //Open menu pause
+    [SerializeField] GameObject _pauseMenu;
+    #endregion
 
-  #region custom public methods
+    #region UnityCalls
+    void Awake() => Init();
+    #endregion
 
-  public void AbrirMenuPausa()
-  {
-
-    m_AbrirMenu = true;
-
-  }
-
-  public void CerrarMenuPausa()
-  {
-
-    m_AbrirMenu = false;
-
-  }
-  #endregion
-
-  #region custom private methods
-  //para abrir el menu de pausa y desactivarlo
-  void MenuPausa()
-  {
-    if (m_AbrirMenu)
+    #region custom private methods
+    //para abrir el menu de pausa y desactivarlo
+    void Init()
     {
-      ActivarAniMenu();
-
+      _pauseButton.onClick.AddListener(ToPausa);
     }
-    else
+    void ToPausa()
     {
-      DesctivarAniMenu();
-      m_menuPausa.SetActive(false);
-      m_interfazJuego.SetActive(true);
+      _pauseMenu.SetActive(!_pauseMenu.activeSelf);
+
+      if (_pauseMenu.activeSelf)
+      {
+        _pauseCloseAnim.SetActive(false);
+        _pauseMenu.SetActive(true);
+        _pauseOpenAnim.SetActive(true);
+        Time.timeScale = 0;        
+      }
+      else
+      {
+        _pauseCloseAnim.SetActive(true);
+        _pauseMenu.SetActive(false);
+        _pauseOpenAnim.SetActive(false);
+        Time.timeScale = 1;
+
+      }
     }
+    #endregion
   }
-
-
-  // public GameObject m_nomral;
-  void ActivarAniMenu()
-  {
-    m_animacion_Desplegable.SetActive(true);
-    //  m_nomral.SetActive(false);
-    m_animacion_Plegable.SetActive(false);
-    m_enmarcha = true;
-    m_animacionBotonGeneral.enabled = true;
-  }
-  void DesctivarAniMenu()
-  {
-    m_animacion_Desplegable.SetActive(false);
-    //  m_nomral.SetActive(false);
-    m_animacion_Plegable.SetActive(true);
-    m_enmarcha = false;
-    m_animacionBotonGeneral.enabled = false;
-  }
-
-  void controlador()
-  {
-    if (m_enmarcha)
-    {
-      m_tiempo += 1 * Time.deltaTime;
-    }
-    else
-    {
-      m_tiempo = 0;
-    }
-
-    if (m_tiempo > 0.6f)
-    {
-      m_menuPausa.SetActive(true);
-      m_interfazJuego.SetActive(false);
-    }
-  }
-  #endregion
-
 }
