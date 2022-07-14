@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C3DAC64D-40CA-A1B3-D7A9-FAD5FB71E07C}</ProjectGuid>
+    <ProjectGuid>{9C6BB627-33FB-C716-EB64-757191BDF0BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,8 +66,8 @@
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel09\SC_Cinematica_01.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_jugadorEfectoDaño.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\SC_AnimacionCambas.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Controlador_Menu_Pausa.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Arma\SC_Disparar.cs" />
+    <Compile Include="Assets\Scripts\InGame\Options\SC_PuaseController.cs" />
+    <Compile Include="Assets\Scripts\InGame\Controls\SC_ShootController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Dialogo.cs" />
     <Compile Include="Assets\Scripts\Menus\Interface\SC_ConvertirSpriteEnImegen.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\MenuPrinicpal\SC_MenuAnimacion.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel04\SC_PuzlesColores.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Arma\SC_CambiarAtaque.cs" />
     <Compile Include="Assets\Scripts\Menus\SC_MapaUiController.cs" />
-    <Compile Include="Assets\Scripts\SC_GameGeneralMannager.cs" />
+    <Compile Include="Assets\Scripts\SC_GameGeneralManager.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Arma\SC_BolaFuego.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel01\SC_ActivarDecoracion.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel04\SC_acertijoLuna.cs" />
@@ -87,11 +87,9 @@
     <Compile Include="Assets\Scripts\Script to refactoring\Enemigos\SC_Pinchos.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_QuitarSuelo.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel01\SC_ActivarDialogo.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_ControlAnimacion.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Enemigos\SC_EnemigoAdistancia.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_CajasDestruibles.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\NIvel02\SC_AcitvarParedInvisible.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Camara\SC_Camera_Seguir_jugador.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel04\SC_DialogoBoton.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\MenuPrinicpal\SC_MenuPrincipal.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\NIvel02\SC_Portal.cs" />
@@ -101,10 +99,10 @@
     <Compile Include="Assets\Scripts\Script to refactoring\DLC\SC_dialogo1.cs" />
     <Compile Include="Assets\Scripts\Menus\Setting\SC_SettingUiController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\DLC\SC_ActivarPortal.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_AnimacionControl.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_PlayerAnimController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Cambiar_gravedad.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_eventoAniAgacho.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Camara\SC_CamaraSubir.cs" />
+    <Compile Include="Assets\Scripts\InGame\Controls\SC_CamaraPlayerController.cs" />
     <Compile Include="Assets\NivelGuardado\Guardar2\SC_GuardarYCargar2.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Salir.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_controlFrame.cs" />
@@ -119,18 +117,19 @@
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel03\SC_PlatafomasCaidas.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_SeguirJugador.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Interfaz\SC_ChisteRandom.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Controlador_Distancia_jugador.cs" />
+    <Compile Include="Assets\Scripts\InGame\Options\SC_ModelDistanceManager.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Nivel.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\vida\SC_Morir.cs" />
+    <Compile Include="Assets\Scripts\InGame\Life\SC_DeathController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_teletransortador.cs" />
     <Compile Include="Assets\NivelGuardado\Guardar2\texto1.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Lector_Datos_BrilloYsonido.cs" />
+    <Compile Include="Assets\Scripts\InGame\Options\SC_BrightAndSoundData.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Enemigos\SC_EnemigoSaltable.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\DLC\SC_Evento2.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_jugadorFisicas.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_PhisicPlayer.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_BloquearBotones.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\DLC\SC_RetoActivo.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_ControlSalto.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\Movments Controlls\SC_JumpController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Enemigos\SC_DesDaño.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Mecanicas_Cubo.cs" />
     <Compile Include="Assets\Scripts\Menus\Interface\SC_Touch.cs" />
@@ -140,23 +139,24 @@
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel01\SC_DesbloquearBotones.cs" />
     <Compile Include="Assets\NivelGuardado\Guardar2\Suscriptable1.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\vida\SC_QuitarVida.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_JugadorMovimiento.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_PlayerController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_ActivarNivel.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel01\SC_ControladorDialogos.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Lector_Graficos.cs" />
     <Compile Include="Assets\Scripts\DataPlayer\SC_SettingsDataPersisten.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Controlador_Graficos.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_Modelo_Distancia.cs" />
+    <Compile Include="Assets\Scripts\InGame\Options\SC_ModelDistanceController.cs" />
     <Compile Include="Assets\Scripts\Menus\SC_InGameUiController.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Opciones\SC_SalirControl.cs" />
-    <Compile Include="Assets\Scripts\MyMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\InGame\Options\SC_QuitController.cs" />
+    <Compile Include="Assets\Scripts\ALBehaviour.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Nivel04\SC_Colores.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\vida\SC_Vida.cs" />
+    <Compile Include="Assets\Scripts\InGame\Life\SC_LifeController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Guardar y cargar\SC_BotonCargar.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\DLC\SC_ControlEvento1.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_ControAgachar.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\Movments Controlls\SC_DuckController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_MovimientoAscensor.cs" />
-    <Compile Include="Assets\Scripts\Script to refactoring\Jugador\SC_flip.cs" />
+    <Compile Include="Assets\Scripts\InGame\Player\SC_FlipController.cs" />
     <Compile Include="Assets\Scripts\Menus\SC_NivelCinematicaUIController.cs" />
     <Compile Include="Assets\Scripts\Script to refactoring\Mecanicas\SC_Ascensor.cs" />
   </ItemGroup>
