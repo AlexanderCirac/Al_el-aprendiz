@@ -15,10 +15,15 @@ namespace AL.InGame.UI
     [SerializeField] GameObject _pauseOpenAnim;
     //Open menu pause
     [SerializeField] GameObject _pauseMenu;
+
+    //Bloc Menu
+    [SerializeField] GameObject m_bloqueMenu;
+    internal bool _isBlockMenu;
     #endregion
 
     #region UnityCalls
     void Awake() => Init();
+    void Update() => ToBlockMenu();
     #endregion
 
     #region custom private methods
@@ -46,6 +51,10 @@ namespace AL.InGame.UI
         Time.timeScale = 1;
 
       }
+    }
+    void ToBlockMenu()
+    {
+      m_bloqueMenu.SetActive(!_isBlockMenu);
     }
     #endregion
   }
