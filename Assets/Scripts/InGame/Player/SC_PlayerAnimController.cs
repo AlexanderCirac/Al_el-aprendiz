@@ -14,11 +14,14 @@ namespace AL.Player
       [SerializeField] GameObject _walkAnim;
       [SerializeField] GameObject _idleAnim;
       [SerializeField] GameObject _shootAnim;
+      [SerializeField] GameObject _duckDownAnim;
+      [SerializeField] GameObject _getUpAnim;
       //buttons to activate anim
       
       [SerializeField] Button _jumpAnimButton;
       [SerializeField] Button _walkAnimButton;
       [SerializeField] Button _shootAnimButton;
+      [SerializeField] Button _duckButton;
 
       #endregion
 
@@ -57,6 +60,11 @@ namespace AL.Player
           _shootAnim.SetActive(false);
           _idleAnim.SetActive(true);
           
+      }       
+      void ToDuck(bool _stateBool)
+      {
+              _duckDownAnim.SetActive(_stateBool);
+              _getUpAnim.SetActive(!_stateBool);
       }     
       IEnumerator FallJumpAnim()
       {
