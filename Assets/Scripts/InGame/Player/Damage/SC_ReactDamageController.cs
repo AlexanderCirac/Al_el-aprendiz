@@ -3,7 +3,7 @@
 namespace AL.Player
 {
 
-    public class SC_jugadorEfectoDaño : MonoBehaviour
+    public class SC_ReactDamageController : MonoBehaviour
     {
 
       #region Attribute
@@ -23,41 +23,41 @@ namespace AL.Player
     public Animator m_raizAnimacionesAnim;
     #endregion
 
-    #region  UnityCalls
-    //esta script se utilizara para empujar al jugador a una direccion cuando este reciva daño
-    // Start is called before the first frame update
-    void Start()
-        {
-                m_rg = this.GetComponent<Rigidbody>();
-        }
+      #region  UnityCalls
+      //esta script se utilizara para empujar al jugador a una direccion cuando este reciva daño
+      // Start is called before the first frame update
+      void Start()
+          {
+                  m_rg = this.GetComponent<Rigidbody>();
+          }
 
-        // Update is called once per frame
-        void Update()
+          // Update is called once per frame
+          void Update()
+          {
+            ContraladorEfectos();
+            EmpujarJugador();
+            parpadeo();
+          }
+        private void OnTriggerEnter(Collider coll)
         {
-          ContraladorEfectos();
-          EmpujarJugador();
-          parpadeo();
+          if(coll.gameObject.layer == 9 )
+          {
+            m_empujarIzquierda = true;
+          } 
+          if(coll.gameObject.layer == 8)
+          {
+            m_empujarDerecha = true;
+          }  
+          if(coll.gameObject.layer == 10)
+          {
+            m_empujarArriba = true;
+          }  
+          if(coll.gameObject.layer == 11)
+          {
+            m_empujarArriba1 = true;
+          }
         }
-      private void OnTriggerEnter(Collider coll)
-      {
-        if(coll.gameObject.layer == 9 )
-        {
-          m_empujarIzquierda = true;
-        } 
-        if(coll.gameObject.layer == 8)
-        {
-          m_empujarDerecha = true;
-        }  
-        if(coll.gameObject.layer == 10)
-        {
-          m_empujarArriba = true;
-        }  
-        if(coll.gameObject.layer == 11)
-        {
-          m_empujarArriba1 = true;
-        }
-      }
-      #endregion
+        #endregion
 
       #region custom public methods
       #endregion
