@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AL.Player;
-public class SC_Cambiar_gravedad : MonoBehaviour
+public class SC_GravetyPlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
