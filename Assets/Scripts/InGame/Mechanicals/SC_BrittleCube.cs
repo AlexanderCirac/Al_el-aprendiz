@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_Mecanicas_Cubo : MonoBehaviour
+namespace AL.InGame
+{
+
+public class SC_BrittleCube : MonoBehaviour
 {
   //esta script es para  romper las cajas cuando pase por encima
   // Start is called before the first frame update
@@ -95,4 +98,5 @@ public class SC_Mecanicas_Cubo : MonoBehaviour
 
     }
   }
+}
 }
