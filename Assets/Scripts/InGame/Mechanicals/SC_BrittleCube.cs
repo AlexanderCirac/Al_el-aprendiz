@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace AL.InGame
 {
@@ -20,85 +22,75 @@ namespace AL.InGame
         #endregion
 
         #region UnityCalls
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-          Parpadear();
-        }
-
-
+        void Start() => Init();
         private void OnTriggerEnter(Collider coll)
         {
           if (coll.CompareTag("Player"))
-          {
-            Funcionalidad();
-          }
+              ToDeleteTyepe();
         }
         #endregion
 
         #region custom private methods
-
-        void Funcionalidad()
+        void Init()
         {
-          romper();
+            StartCoroutine(Parpadear());
         }
 
-        void romper()
+        void ToDeleteTyepe()
         {
-          if (m_id_Caja == 1)//solo romper
-          {
-            m_particula.SetActive(true);
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            m_coldider.enabled = false;
-            Invoke("Autodestruir", 1.5f);
-          }
-          if (m_id_Caja == 2)//quitar vida y romperse
-          {
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            m_coldider.enabled = false;
-            Invoke("Autodestruir", 0.5f);
-          }
+            if (m_id_Caja == 1)//solo romper
+            {
+              m_particula.SetActive(true);
+              this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+              m_coldider.enabled = false;
+              Invoke(nameof(Autodestruir), 1.5f);
+            }
+            if (m_id_Caja == 2)//quitar vida y romperse
+            {
+              this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+              m_coldider.enabled = false;
+              Invoke(nameof(Autodestruir), 0.5f);
+            }
         }
         void Autodestruir()
         {
           Destroy(m_cubo);
         }
 
-        void Parpadear()
+        IEnumerator Parpadear()
         {
-          if (m_id_Caja == 3)
-          {
-            m_tiempo += (m_tiempoMax / 2) * Time.deltaTime;
+            while (SceneManager.GetActiveScene().isLoaded)
+            {
 
-            if (m_tiempo < (m_tiempoMax + (-m_deley)) && m_cambio == 0)
-            {
-              m_cambio = 0;
-            }
-            if (m_tiempo > (m_tiempoMax + 0.1f + (-m_deley)) && m_cambio == 0)
-            {
-              m_cambio = 1;
-            }
-            if (m_tiempo > (m_tiempoMax * 2 + (-m_deley)) && m_cambio == 1)
-            {
-              m_tiempo = 0;
-              m_cambio = 0;
-            }
+                if (m_id_Caja == 3)
+                {
+                  m_tiempo += (m_tiempoMax / 2) * Time.deltaTime;
 
-            if (m_cambio == 0)
-            {
-              m_cubo.SetActive(true);
-            }
-            else
-            {
-              m_cubo.SetActive(false);
-            }
+                  if (m_tiempo < (m_tiempoMax + (-m_deley)) && m_cambio == 0)
+                  {
+                    m_cambio = 0;
+                  }
+                  if (m_tiempo > (m_tiempoMax + 0.1f + (-m_deley)) && m_cambio == 0)
+                  {
+                    m_cambio = 1;
+                  }
+                  if (m_tiempo > (m_tiempoMax * 2 + (-m_deley)) && m_cambio == 1)
+                  {
+                    m_tiempo = 0;
+                    m_cambio = 0;
+                  }
 
-          }
+                  if (m_cambio == 0)
+                  {
+                    m_cubo.SetActive(true);
+                  }
+                  else
+                  {
+                    m_cubo.SetActive(false);
+                  }
+                  yield return null;
+                }
+            }
         }
         #endregion
 
