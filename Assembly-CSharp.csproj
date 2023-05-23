@@ -146,8 +146,8 @@
     <Compile Include="Assets\Script to refactoring\Opciones\SC_Controlador_Graficos.cs" />
     <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_ModelDistanceController.cs" />
     <Compile Include="Assets\Scripts\UIGame\UIController\Old\SC_InGameUiController.cs" />
-    <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_QuitController.cs" />
     <Compile Include="Assets\Scripts\MyTools\ALBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_QuitController.cs" />
     <Compile Include="Assets\Script to refactoring\Nivel04\SC_Colores.cs" />
     <Compile Include="Assets\Scripts\InGame\Life\Old\SC_LifeController.cs" />
     <Compile Include="Assets\Script to refactoring\Guardar y cargar\SC_BotonCargar.cs" />
@@ -791,6 +791,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D178836E-FD12-09DB-DCF0-98EC367A8C0A}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
