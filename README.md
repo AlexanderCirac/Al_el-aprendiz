@@ -8,8 +8,12 @@ Link: https://play.google.com/store/apps/details?id=alexander.cadetethorn
 Vs_01: Initial proyect - amateur programmer
 
 Vs_02: Refactor 01 - Enums, #regions, namespace, corrutina, restruct scritps and reorganize(Headers, space, correct lineation... ) 
+
         -El primer proyecto que refactrorizo por eso tiene menos cosas 
+        
         -The first project that I refactored for that reason has less things
+        
+        
 Vs_03: Refactor 02 - Current Refactoring
 
 ESP:
