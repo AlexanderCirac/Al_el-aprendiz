@@ -14,7 +14,7 @@ Vs_02: Refactor 01 - Enums, #regions, namespace, corrutina, restruct scritps and
         -The first project that I refactored for that reason has less things
         
         
-Vs_03: Refactor 02 - Current Refactoring
+Vs_03: Refactor 02 - Current Refactoring (Reorganize scene, add Pro Menu System, add Znject ( first Steps), Add custom editor scritp, Implement design patterns ( Observer, singleton, Templates), scriptable Object,  Generics, Refactor unity Events, Assemblys, Dinamic list, Interface, Class Helper, struct, Plataform dependent compilation and DRY)
 
 ESP:
 
