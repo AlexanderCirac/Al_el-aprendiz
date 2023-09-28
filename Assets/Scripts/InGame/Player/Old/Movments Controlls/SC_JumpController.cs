@@ -39,19 +39,19 @@ namespace AL.Player
     #region custom private methods
     void Init()
     {
-      _jumpRightButton.onClick.AddListener(Saltar);
-      _jumpLeftButton.onClick.AddListener(Saltar);
+      //_jumpRightButton.onClick.AddListener(Saltar);
+      //_jumpLeftButton.onClick.AddListener(Saltar);
     }
     void ToLockJump()
     {
-      _jumpRightButton.interactable = false;
-      _jumpLeftButton.interactable = false;
+  //    _jumpRightButton.interactable = false;
+      //_jumpLeftButton.interactable = false;
       _isJumping = false;
     }
     void ToUnlockJump()
     {
-      _jumpRightButton.interactable = true;
-      _jumpLeftButton.interactable = true;
+      //_jumpRightButton.interactable = true;
+     // _jumpLeftButton.interactable = true;
       _isJumping = true;
     }
 

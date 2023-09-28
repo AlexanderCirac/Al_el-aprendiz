@@ -30,9 +30,9 @@ namespace AL.Player
 
       void OnTriggerEnter(Collider coll)
       {
-        if (coll.CompareTag("Suelo"))
-            if(_jumpAnim.activeSelf)
-                StartCoroutine(FallJumpAnim());
+       // if (coll.CompareTag("Suelo"))
+            //if(_jumpAnim.activeSelf)
+            //    StartCoroutine(FallJumpAnim());
       }
 
       void OnTriggerExit(Collider coll)
@@ -77,8 +77,8 @@ namespace AL.Player
 
       void Init()
       {
-         _jumpAnimButton.onClick.AddListener(JumpAnim);
-         _shootAnimButton.onClick.AddListener(AttackBeggin);
+        // _jumpAnimButton.onClick.AddListener(JumpAnim);
+        // _shootAnimButton.onClick.AddListener(AttackBeggin);
       }
       #endregion
   

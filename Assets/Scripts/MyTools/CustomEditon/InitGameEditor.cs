@@ -1,11 +1,12 @@
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace Al.Tools.Edits
 {
     using Al.UIGame;
-    using UnityEngine;
-    using UnityEngine.UI;
+    using System.IO;
 
     [CustomEditor(typeof(InitGameUIController))]
     [CanEditMultipleObjects]
@@ -36,6 +37,21 @@ namespace Al.Tools.Edits
                 _isFlipFlop = !_isFlipFlop;
             }
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.BeginVertical();
+            if ( GUILayout.Button("Opten Scritp: InitGameUIController") )
+            {
+                MonoScript script1 = MonoScript.FromMonoBehaviour(target as MonoBehaviour);
+                AssetDatabase.OpenAsset(script1);
+
+            }
+            if ( GUILayout.Button("Opten Scritp: InitGameEditor") )
+            {
+
+                string editorScriptPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this));
+                string fullPath = Path.GetFullPath(editorScriptPath);
+                EditorUtility.OpenWithDefaultApp(fullPath);
+            }
+            EditorGUILayout.EndVertical();
             if ( _isFlipFlop )
             {
                 EditorGUILayout.HelpBox("Pasa cual sera el animator y despues la duracion de la animacion para que pueda cargar el nivel" , MessageType.Info);
@@ -58,7 +74,7 @@ namespace Al.Tools.Edits
             {
                 EditorGUILayout.HelpBox("Indica Cual ser el botton que cargara el nivel" , MessageType.None);
                 script._animationButton = EditorGUILayout.ObjectField("Button To Loaded" , script._animationButton , typeof(Button) , true) as Button;
-            }
+            } 
         }
         #endregion
 

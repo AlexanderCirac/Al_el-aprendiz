@@ -17,8 +17,8 @@ public class SC_FlipController : MonoBehaviour
   #region custom private method
   void Init()
   {
-    _leftButton.onClick.AddListener(() => _flipPlayer.flipX = false);
-    _rightButton.onClick.AddListener(() => _flipPlayer.flipX = true);
+    //_leftButton.onClick.AddListener(() => _flipPlayer.flipX = false);
+    //_rightButton.onClick.AddListener(() => _flipPlayer.flipX = true);
   }
   #endregion
 }

@@ -17,8 +17,8 @@ public class SC_ShootController : MonoBehaviour
   #region custom private methods
   void Init()
   {
-    _shootButtonLeft.onClick.AddListener(ToShoot);
-    _shootButtonLeft.onClick.AddListener(ToShoot);
+    //_shootButtonLeft.onClick.AddListener(ToShoot);
+    //_shootButtonLeft.onClick.AddListener(ToShoot);
   }
   void ToShoot()
   {

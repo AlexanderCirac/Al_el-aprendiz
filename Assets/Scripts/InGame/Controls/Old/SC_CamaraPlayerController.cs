@@ -19,8 +19,8 @@ namespace AL.Camara
         void Awake() => Init();
         void OnTriggerEnter(Collider coll)
         {
-          if (coll.CompareTag("Suelo2"))
-            ZoomOut();
+          //if (coll.CompareTag("Suelo2"))
+          //  ZoomOut();
 
           if (coll.CompareTag("Suelo1"))
             ZoomIn();
@@ -30,13 +30,13 @@ namespace AL.Camara
         #region custom private methods
         void Init()
         {
-            transform.position = _ancleCamera.transform.position;
+         //   transform.position = _ancleCamera.transform.position;
             CameraFolwPlayer();
         }
         void ZoomIn()
         {
-            while( GetComponent<Camera>().fieldOfView >= 35)
-              GetComponent<Camera>().fieldOfView -= _velocityZoom * Time.deltaTime;
+          //  while( GetComponent<Camera>().fieldOfView >= 35)
+          //    GetComponent<Camera>().fieldOfView -= _velocityZoom * Time.deltaTime;
         }
         void ZoomOut()
         {

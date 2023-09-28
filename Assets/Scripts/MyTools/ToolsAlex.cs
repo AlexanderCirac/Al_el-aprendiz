@@ -159,11 +159,11 @@ namespace AlexanderCA.Tools.Generics
             }
         }
         #endregion
-        public static int GetChangeValue(int value , int decrementAmount , int minLimit)
+        public static int SetChangeValue(int value , int decrementAmount , int minLimit)
         {
             return Mathf.Max(minLimit , value - decrementAmount);
         }
-        public static int GetClampValue(int value , int minValue , int maxValue , int operation , UnityAction OnClampExceded = null)
+        public static int SetClampValue(int value , int minValue , int maxValue , int operation , UnityAction OnClampExceded = null)
         {
             int result = value + operation;
             result = Mathf.Clamp(result , minValue , maxValue);

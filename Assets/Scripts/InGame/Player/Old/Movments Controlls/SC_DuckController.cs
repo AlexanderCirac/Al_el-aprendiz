@@ -36,8 +36,8 @@ namespace AL.Player
             m_normalY = this.transform.localScale.y;
             m_normalZ = this.transform.localScale.z;
             
-            _duckLeft.onClick.AddListener(AnimacionAgachar);
-            _duckRight.onClick.AddListener(AnimacionAgachar);
+           // _duckLeft.onClick.AddListener(AnimacionAgachar);
+           // _duckRight.onClick.AddListener(AnimacionAgachar);
         }
         void AnimacionAgachar()
         {
