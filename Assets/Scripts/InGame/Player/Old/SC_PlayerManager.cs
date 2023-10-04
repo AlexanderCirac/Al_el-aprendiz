@@ -9,8 +9,8 @@ namespace AL.Player
     {
         #region Attributes
         internal static SC_PlayerManager _instance;
-        internal SC_JumpController _controlSalto;
-        internal SC_DuckController _controlAgachar;
+       // internal SC_JumpController _controlSalto;
+       // internal SC_DuckController _controlAgachar;
         #endregion
 
         #region Unity Calls
@@ -21,8 +21,8 @@ namespace AL.Player
         private void Init()
         {
           _instance = this;
-          _controlSalto = FindObjectOfType<SC_JumpController>();
-          _controlAgachar = FindObjectOfType<SC_DuckController>();
+          //_controlSalto = FindObjectOfType<SC_JumpController>();
+          //_controlAgachar = FindObjectOfType<SC_DuckController>();
         }
 
         #endregion

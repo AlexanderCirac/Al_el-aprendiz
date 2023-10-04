@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+//using Zenject;
 
 namespace AL.Tools.Template
 {
 
     using AL.Tools.Interface;
-    using UniRx;
+    //using UniRx;
 
     public abstract class CharacterTamplate : MonoBehaviour
     {
         #region Attributes
 
        // [HideInInspector]
-        [Inject]
+      //  [Inject]
         public IInputs _inputs;
 
         #region Events 
@@ -32,10 +32,10 @@ namespace AL.Tools.Template
         #region UnityCalls
         private void Awake()
         {
-            Observable.EveryUpdate().Where(_ => _inputs.GetHorizontal() != 0).Subscribe(_ => _delegateInputsMovement?.Invoke());
-            _delegateInputsMovement += ToMovement;         
-            _delegateInputsMovement += ToRotate;
-            Observable.EveryUpdate().Where(_ => _inputs.GetJump() != 0).Subscribe(_ => _delegateInputsJump?.Invoke());
+            //Observable.EveryUpdate().Where(_ => _inputs.GetHorizontal() != 0).Subscribe(_ => _delegateInputsMovement?.Invoke());
+            //_delegateInputsMovement += ToMovement;         
+            //_delegateInputsMovement += ToRotate;
+            //Observable.EveryUpdate().Where(_ => _inputs.GetJump() != 0).Subscribe(_ => _delegateInputsJump?.Invoke());
        
         }
         public virtual void Update()

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace AL.InGame.Character
 {
     using AL.Tools.Template;
-    using Zenject;
+   // using Zenject;
 
     public class EnemyCharacter : IATemplate
     {

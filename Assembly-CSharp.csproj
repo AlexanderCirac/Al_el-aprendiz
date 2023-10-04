@@ -53,11 +53,7 @@
     <UnityVersion>2021.1.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\UIGame\UIController\Old\SC_MainMenuUIController.cs" />
-    <Compile Include="Assets\Scripts\InGame\InGame_Zenject\CharacterInstaller.cs" />
     <Compile Include="Assets\Scripts\UIGame\UIController\InitGameUIController.cs" />
     <Compile Include="Assets\Scripts\UIGame\NivelGuardado\Old\mover.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Interfaz\SC_VidaAniamcion.cs" />
@@ -68,7 +64,6 @@
     <Compile Include="Assets\Scripts\InGame\Player\Old\Damage\SC_ReactDamageController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\SC_AnimacionCambas.cs" />
     <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_PuaseController.cs" />
-    <Compile Include="Assets\Scripts\InGame\Controls\Old\SC_ShootController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Mecanicas\SC_Dialogo.cs" />
     <Compile Include="Assets\Scripts\UIGame\Menus\Old\Interface\SC_ConvertirSpriteEnImegen.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\MenuPrinicpal\SC_MenuAnimacion.cs" />
@@ -107,12 +102,9 @@
     <Compile Include="Assets\Scripts\Old Scripts\DLC\SC_dialogo1.cs" />
     <Compile Include="Assets\Scripts\UIGame\Menus\Old\Setting\SC_SettingUiController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\DLC\SC_ActivarPortal.cs" />
-    <Compile Include="Assets\Scripts\InGame\Player\Old\SC_PlayerAnimController.cs" />
     <Compile Include="Assets\Scripts\InGame\Player\Old\SC_GravetyPlayerController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Jugador\SC_eventoAniAgacho.cs" />
-    <Compile Include="Assets\Scripts\InGame\Controls\Old\SC_CamaraPlayerController.cs" />
     <Compile Include="Assets\Scripts\UIGame\NivelGuardado\Old\Guardar2\SC_GuardarYCargar2.cs" />
-    <Compile Include="Assets\Scripts\InGame\Characters\IA\Enemy\UntitledInstaller.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Mecanicas\SC_Salir.cs" />
     <Compile Include="Assets\Scripts\MyTools\Interfaces\Interface.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Opciones\SC_controlFrame.cs" />
@@ -135,7 +127,6 @@
     <Compile Include="Assets\Scripts\InGame\Characters\IA\Enemy\EnemyImputs.cs" />
     <Compile Include="Assets\Scripts\UIGame\NivelGuardado\Old\Guardar2\texto1.cs" />
     <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_BrightAndSoundData.cs" />
-    <Compile Include="Assets\Scripts\InGame\InGame_Zenject\AnimationCharacterInstaller.cs" />
     <Compile Include="Assets\Scripts\MyTools\CustomEditon\PlayerInputsEdit.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Enemigos\SC_EnemigoSaltable.cs" />
     <Compile Include="Assets\Scripts\MyTools\ToolsAlex.cs" />
@@ -146,7 +137,6 @@
     <Compile Include="Assets\Scripts\Old Scripts\Jugador\SC_BloquearBotones.cs" />
     <Compile Include="Assets\Scripts\InGame\Player\Old\SC_PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\DLC\SC_RetoActivo.cs" />
-    <Compile Include="Assets\Scripts\InGame\Player\Old\Movments Controlls\SC_JumpController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Enemigos\SC_DesDaño.cs" />
     <Compile Include="Assets\Scripts\UIGame\Menus\ChangePanelsDeley.cs" />
     <Compile Include="Assets\Scripts\InGame\Mechanicals\Old\SC_BrittleCube.cs" />
@@ -154,6 +144,7 @@
     <Compile Include="Assets\Scripts\UIGame\Menus\Old\Interface\SC_Touch.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Nivel03\SC_ActivarAscensor.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Nivel04\SC_CORRINCORR.cs" />
+    <Compile Include="Assets\Scripts\MyTools\CustomEditon\PlayerAnimationEdit.cs" />
     <Compile Include="Assets\Scripts\UIGame\NivelGuardado\Old\guardado1\SC_GuardadosYcargados.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Nivel01\SC_DesbloquearBotones.cs" />
     <Compile Include="Assets\Scripts\UIGame\NivelGuardado\Old\Guardar2\Suscriptable1.cs" />
@@ -166,7 +157,6 @@
     <Compile Include="Assets\Scripts\Old Scripts\Opciones\SC_Lector_Graficos.cs" />
     <Compile Include="Assets\Scripts\DataPlayer\Old\SC_SettingsDataPersisten.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Opciones\SC_Controlador_Graficos.cs" />
-    <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_ModelDistanceController.cs" />
     <Compile Include="Assets\Scripts\UIGame\UIController\Old\SC_InGameUiController.cs" />
     <Compile Include="Assets\Scripts\MyTools\ALBehaviour.cs" />
     <Compile Include="Assets\Scripts\UIGame\Options\Old\SC_QuitController.cs" />
@@ -174,11 +164,8 @@
     <Compile Include="Assets\Scripts\InGame\Life\Old\SC_LifeController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Guardar y cargar\SC_BotonCargar.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\DLC\SC_ControlEvento1.cs" />
-    <Compile Include="Assets\Scripts\InGame\Player\Old\Movments Controlls\SC_DuckController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Mecanicas\SC_MovimientoAscensor.cs" />
-    <Compile Include="Assets\Scripts\InGame\Player\Old\SC_FlipController.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Mecanicas\SC_Ascensor.cs" />
-    <Compile Include="Assets\Scripts\MyTools\CustomEditon\PlayerAnimationEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -412,26 +399,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.4f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Zenject-usage">
-      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
     <Reference Include="MiscUtil">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Runtime\VisualScripting.Core\Dependencies\MiscUtil\MiscUtil.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.5.2\Runtime\VisualScripting.Flow\Dependencies\NCalc\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.4f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -831,26 +803,6 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{D178836E-FD12-09DB-DCF0-98EC367A8C0A}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{C4B67826-A29F-88C3-6E1D-10FAF032B306}</Project>
-      <Name>UniRx</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{92DB6A26-A202-C611-C5D3-C92F6309C85A}</Project>
-      <Name>Zenject-ReflectionBaking-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject.csproj">
-      <Project>{20F216C8-F035-7F4D-0C59-9D4933A2D835}</Project>
-      <Name>Zenject</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{0BC8625A-CC40-03E6-E9C4-3A5FC980DED6}</Project>
-      <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{2481919F-386B-1054-0744-191646E4FAE1}</Project>
-      <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

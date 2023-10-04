@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+//using Zenject;
 
 namespace AL.Tools.Template
 {
@@ -9,7 +9,7 @@ namespace AL.Tools.Template
     public abstract class IATemplate : MonoBehaviour
     {
         #region Attributes
-        [Inject]
+       // [Inject]
         public IInputs inputs;
         #endregion
 

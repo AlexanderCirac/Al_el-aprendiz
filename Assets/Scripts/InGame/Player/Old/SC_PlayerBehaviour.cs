@@ -7,8 +7,8 @@ namespace AL.Player
 
     public class SC_PlayerBehaviour : MonoBehaviour
     {
-      protected SC_PlayerManager _playerManager => SC_PlayerManager._instance;
-      protected SC_JumpController _jumpController => _playerManager._controlSalto;
-      protected SC_DuckController _duckController=> _playerManager._controlAgachar;
+      //protected SC_PlayerManager _playerManager => SC_PlayerManager._instance;
+      //protected SC_JumpController _jumpController => _playerManager._controlSalto;
+      //protected SC_DuckController _duckController=> _playerManager._controlAgachar;
     }
 }

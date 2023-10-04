@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+//using Zenject;
 
 namespace AL.Tools.Template
 {
@@ -12,7 +12,7 @@ using AL.Tools.Interface;
         #region Attributes
 
         // [HideInInspector]
-        [Inject]
+       // [Inject]
         private CharacterTamplate _characterMovements;
        
         #endregion

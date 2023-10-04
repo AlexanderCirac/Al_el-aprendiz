@@ -8,7 +8,7 @@ namespace AL.Player
   {
 
       #region Attribute
-      public SC_JumpController SC_CA;
+     // public SC_JumpController SC_CA;
       public PhysicMaterial m_PM;    
       #endregion
 
@@ -19,14 +19,14 @@ namespace AL.Player
       #region custom private methods
       void controlfisicas()
       {
-        if (SC_CA._isJumping == false)
-        {
-          m_PM.dynamicFriction = 0.1f;
-        }
-        else
-        {
-          m_PM.dynamicFriction = 1;
-        }
+        //if (SC_CA._isJumping == false)
+        //{
+        //  m_PM.dynamicFriction = 0.1f;
+        //}
+        //else
+        //{
+        //  m_PM.dynamicFriction = 1;
+        //}
       }
       #endregion
 
