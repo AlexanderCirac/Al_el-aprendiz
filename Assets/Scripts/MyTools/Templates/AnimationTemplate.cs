@@ -20,15 +20,22 @@ using AL.Tools.Interface;
         #region UnityCalls
         private void Awake()
         {
+           if(_characterMovements != null)
+            {
 
             _characterMovements._delegateInputsJump += ToAnimationJumping;
             _characterMovements._delegateInputsMovement += ToAnimationMovement;
+            }
         }
      
         private void OnDestroy()
         {
+           if(_characterMovements != null)
+            {
+
             _characterMovements._delegateInputsJump -= ToAnimationJumping;
             _characterMovements._delegateInputsMovement -= ToAnimationMovement;
+            }
         }
         #endregion
 

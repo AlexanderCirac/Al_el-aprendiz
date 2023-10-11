@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace AL.InGame.Inputs
 {
     using AL.Tools.Interface;
     using AL.Tools.Enums;
     using UnityEngine.EventSystems;
+
     public class EnemyImputs : MonoBehaviour, IInputs
     {
         #region Attributes
@@ -80,6 +82,7 @@ namespace AL.InGame.Inputs
         }
 
         #endregion
+
         #region Attrbutes
         void Awake()
         {

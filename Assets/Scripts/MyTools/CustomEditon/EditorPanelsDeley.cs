@@ -29,7 +29,6 @@ namespace Al.Tools.Edits
         #endregion
 
         #region Editor Calls
-
         private void OnEnable()
         {
 

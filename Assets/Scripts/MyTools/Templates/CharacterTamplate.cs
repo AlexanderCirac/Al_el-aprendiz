@@ -40,7 +40,7 @@ namespace AL.Tools.Template
         }
         public virtual void Update()
         {
-            if ( _inputs.GetJump() != 0 )
+            if ( _inputs != null && _inputs.GetJump() != 0 )
             {
                 ToJumping();
             }
