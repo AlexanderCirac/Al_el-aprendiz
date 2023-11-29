@@ -31,7 +31,6 @@ namespace Al.UIGame
         {
             _animatior.SetBool("isLoading",true);
             Invoke(nameof(LoadLevel) , _timeAnimation);
-            Debug.Log("hola");
         }
         void LoadLevel()
         {

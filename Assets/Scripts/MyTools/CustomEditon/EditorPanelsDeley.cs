@@ -8,6 +8,7 @@ namespace Al.Tools.Edits
     using Al.UIGame;
     using System.Collections;
     using System.IO;
+using System.Linq;
     using System;
 
     [CustomEditor(typeof(ChangePanelsDeley) , true)]
@@ -40,7 +41,7 @@ namespace Al.Tools.Edits
 
             ChangePanelsDeley script = target as ChangePanelsDeley;
 
-            if ( !_doOnce )
+            if (!_doOnce)
             {
                 string folderPath = "Assets/Image/Menu/Pergaminao_01.png";
                 _image = AssetDatabase.LoadAssetAtPath<Texture2D>(folderPath);
@@ -54,20 +55,20 @@ namespace Al.Tools.Edits
             Rect helpBoxRect = GUILayoutUtility.GetRect(GUIContent.none, helpBoxStyle, GUILayout.Height(50));
             GUI.Box(helpBoxRect , "Bienvenido a mi edicion profesional" , helpBoxStyle);
             //forma rapida de coger referencia
-            if ( GUILayout.Button(new GUIContent("Explication" , _image) , GUILayout.Height(50) , GUILayout.Width(100)) )
+            if (GUILayout.Button(new GUIContent("Explication" , _image) , GUILayout.Height(50) , GUILayout.Width(100)))
             {
                 _isFlipFlop = !_isFlipFlop;
             }
 
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.BeginVertical();
-            if ( GUILayout.Button("Opten Scritp: ChangePanelsDeley ") )
+            if (GUILayout.Button("Opten Scritp: ChangePanelsDeley "))
             {
                 MonoScript script1 = MonoScript.FromMonoBehaviour(target as MonoBehaviour);
                 AssetDatabase.OpenAsset(script1);
 
             }
-            if ( GUILayout.Button("Opten Scritp: EditorPanelsDeley ") )
+            if (GUILayout.Button("Opten Scritp: EditorPanelsDeley "))
             {
 
                 string editorScriptPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this));
@@ -75,10 +76,10 @@ namespace Al.Tools.Edits
                 EditorUtility.OpenWithDefaultApp(fullPath);
             }
             EditorGUILayout.EndVertical();
-            if ( _isFlipFlop )
+            if (_isFlipFlop)
             {
                 EditorGUILayout.HelpBox("Pasa cual sera el animator y despues la duracion de la animacion para que pueda cargar el nivel" , MessageType.Info);
-                if ( !_isAnimationCorrutine )
+                if (!_isAnimationCorrutine)
                 {
                     EditorApplication.update += ProcessDownload;
                     currentDownload = IEAnimationScroll();
@@ -87,7 +88,7 @@ namespace Al.Tools.Edits
             }
             else
             {
-                if ( _isAnimationCorrutine )
+                if (_isAnimationCorrutine)
                 {
 
                     EditorApplication.update += ProcessDownload;
@@ -100,21 +101,23 @@ namespace Al.Tools.Edits
             script._animationUp = EditorGUILayout.ObjectField("Animation Up" , script._animationUp , typeof(GameObject) , true) as GameObject;
             script._animationDown = EditorGUILayout.ObjectField("Animation Down" , script._animationDown , typeof(GameObject) , true) as GameObject;
             showArray = EditorGUILayout.Foldout(showArray , "Array of Structs");
-            if ( showArray )
+            if (showArray)
             {
                 EditorGUI.indentLevel++;
                 EditorGUILayout.PropertyField(_variablesDeley , true);
-                if ( _variablesDeley.isExpanded )
+
+                if (_variablesDeley.isExpanded)
                 {
                     EditorGUI.indentLevel++;
 
-                    if ( foldouts == null || foldouts.Length != _variablesDeley.arraySize )
+                    if (foldouts == null || foldouts.Length != _variablesDeley.arraySize)
                     {
                         foldouts = new bool[_variablesDeley.arraySize];
                     }
                     EditorGUI.indentLevel++;
 
-                    for ( int i = 0 ; i < _variablesDeley.arraySize ; i++ )
+
+                    for (int i = 0 ; i < _variablesDeley.arraySize ; i++)
                     {
                         SerializedProperty element = _variablesDeley.GetArrayElementAtIndex(i);
                         SerializedProperty nameElement = element.FindPropertyRelative("_nameElement");
@@ -123,7 +126,7 @@ namespace Al.Tools.Edits
 
                         foldouts[i] = EditorGUILayout.Foldout(foldouts[i] , nameElement.stringValue);
 
-                        if ( foldouts[i] )
+                        if (foldouts[i])
                         {
                             EditorGUI.indentLevel++;
                             EditorGUILayout.PropertyField(nameElement , new GUIContent("_nameElement") , true);
@@ -131,25 +134,25 @@ namespace Al.Tools.Edits
                             //  EditorGUILayout.PropertyField(button , new GUIContent("Value") , true);
                             script._configurePanelDeley[i]._buttonPanel = EditorGUILayout.ObjectField("Button To enable panel" , script._configurePanelDeley[i]._buttonPanel , typeof(Button) , true) as Button;
                             EditorGUI.indentLevel++;
-                            if ( script._configurePanelDeley[i]._buttonPanel )
+                            if (script._configurePanelDeley[i]._buttonPanel)
                             {
                                 EditorGUILayout.HelpBox("Cual sera el panel que se cerrara antes de la carga?" , MessageType.None);
                                 script._configurePanelDeley[i]._panelDesable = EditorGUILayout.ObjectField("Desable Panel" , script._configurePanelDeley[i]._panelDesable , typeof(GameObject) , true) as GameObject;
                                 EditorGUI.indentLevel++;
 
-                                if ( script._configurePanelDeley[i]._panelDesable )
+                                if (script._configurePanelDeley[i]._panelDesable)
                                 {
 
                                     EditorGUILayout.HelpBox("Cual sera el panel que mostrara despues de la carga ?" , MessageType.None);
                                     script._configurePanelDeley[i]._panelEnabled = EditorGUILayout.ObjectField("Enable Panel" , script._configurePanelDeley[i]._panelEnabled , typeof(GameObject) , true) as GameObject;
                                     EditorGUI.indentLevel++;
-                                    if ( script._configurePanelDeley[i]._panelEnabled )
+                                    if (script._configurePanelDeley[i]._panelEnabled)
                                     {
                                         EditorGUILayout.HelpBox("Cuanto tiempo le pondras de espera antes de mostrar el panel?" , MessageType.None);
                                         EditorGUILayout.PropertyField(delay , new GUIContent("time deley") , true);
                                         script._configurePanelDeley[i]._delay = delay.floatValue;
                                         EditorGUI.indentLevel++;
-                                        if ( script._configurePanelDeley[i]._delay != 0 )
+                                        if (script._configurePanelDeley[i]._delay != 0)
                                         {
                                             EditorGUILayout.HelpBox("Quieres activar la animacion Up?" , MessageType.None);
                                             EditorGUILayout.PropertyField(_isUp , new GUIContent("Animation Up") , true);
@@ -184,7 +187,7 @@ namespace Al.Tools.Edits
         public IEnumerator IEAnimationScroll()
         {
             string folderPath;
-            if ( _isFlipFlop )
+            if (_isFlipFlop)
             {
 
                 folderPath = "Assets/Image/Menu/Pergaminao_01.png";

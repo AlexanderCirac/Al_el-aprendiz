@@ -7,6 +7,9 @@ namespace Al.UIGame
 {
     using Al.UIGame;
     using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Cryptography;
 
     public class ChangePanelsDeley : MonoBehaviour
     {
@@ -26,15 +29,17 @@ namespace Al.UIGame
 
         public GameObject _animationUp;
         public GameObject _animationDown;
+
         #endregion
+       public  int _id;
 
         #region Unity Calls
         private void Awake()
         {
-            for ( int i = 0 ; i < _configurePanelDeley.Length ; i++ )
+            foreach (var item in _configurePanelDeley)
             {
-                int _id = i;
-                _configurePanelDeley[i]._buttonPanel.onClick.AddListener(() => StartCoroutine(IEDeleyPanel(_id , _configurePanelDeley[_id]._isUp)));
+                _id++;
+                item._buttonPanel.onClick.AddListener(() => StartCoroutine(IEDeleyPanel(_id-1 , _configurePanelDeley[_id-1]._isUp)));
             }
         }
         #endregion

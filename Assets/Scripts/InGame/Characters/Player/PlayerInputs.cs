@@ -7,6 +7,7 @@ namespace AL.InGame.Inputs
     using AL.Tools.Interface;
     using AL.Tools.Enums;
     using UnityEngine.EventSystems;
+    using System.Linq;
 
     [System.Serializable]
     public class Buttons1
@@ -21,23 +22,30 @@ namespace AL.InGame.Inputs
     {
         #region Attributes
 
-        public Buttons1[] _controllsInputs;
+       public List<Buttons1> _controllsInputs;
+       public Buttons1[] _controllsInputs2;
+        
 
         public float GetHorizontal()
         {
+         
             float _currentVelocity = 0;
-            for ( int i = 0 ; i < _controllsInputs.Length ; i++ )
+            foreach (var item in _controllsInputs)
             {
-                if ( _controllsInputs[i]._iD == eButtonAction.ButtonMoveRight )
+                int index = _controllsInputs.IndexOf(item);
+
+
+                if (_controllsInputs[index]._iD == eButtonAction.ButtonMoveRight)
                 {
-                    if ( _controllsInputs[i]._buttonActionLefthand.GetComponent<IButtonHandle>() != null && _controllsInputs[i]._buttonActionLefthand.GetComponent<IButtonHandle>().IsDown == true )
-                        _currentVelocity = _controllsInputs[i].Velocity;
+                    if (_controllsInputs[index]._buttonActionLefthand.GetComponent<IButtonHandle>() != null && _controllsInputs[index]._buttonActionLefthand.GetComponent<IButtonHandle>().IsDown == true)
+                        _currentVelocity = _controllsInputs[index].Velocity;
 
 
-                    if ( _controllsInputs[i]._buttonActionRightHand.GetComponent<IButtonHandle>() != null && _controllsInputs[i]._buttonActionRightHand.GetComponent<IButtonHandle>().IsDown == true )
-                        _currentVelocity = _controllsInputs[i].Velocity;
+                    if (_controllsInputs[index]._buttonActionRightHand.GetComponent<IButtonHandle>() != null && _controllsInputs[index]._buttonActionRightHand.GetComponent<IButtonHandle>().IsDown == true)
+                        _currentVelocity = _controllsInputs[index].Velocity;
                 }
             }
+
             return _currentVelocity;
         }
         public float velocity;
@@ -61,15 +69,16 @@ namespace AL.InGame.Inputs
 
         void Start()
         {
-            for ( int i = 0 ; i < _controllsInputs.Length ; i++ )
+            foreach (var item in _controllsInputs)
             {
-                if ( _controllsInputs[i]._iD == eButtonAction.ButtonJump )
+                int index = _controllsInputs.IndexOf(item);
+                if (_controllsInputs[index]._iD == eButtonAction.ButtonJump)
                 {
-                    int id = i;
-                    _controllsInputs[i]._buttonActionLefthand.onClick.AddListener(() => velocity = _controllsInputs[id].Velocity);
-                    _controllsInputs[i]._buttonActionRightHand.onClick.AddListener(() => velocity = _controllsInputs[id].Velocity);
+                    _controllsInputs[index]._buttonActionLefthand.onClick.AddListener(() => velocity = _controllsInputs[index].Velocity);
+                    _controllsInputs[index]._buttonActionRightHand.onClick.AddListener(() => velocity = _controllsInputs[index].Velocity);
                 }
             }
+           
         }
         #endregion
 

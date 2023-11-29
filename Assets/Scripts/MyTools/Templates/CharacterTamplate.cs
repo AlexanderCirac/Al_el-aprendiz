@@ -33,10 +33,10 @@ namespace AL.Tools.Template
         private void Awake()
         {
             //Observable.EveryUpdate().Where(_ => _inputs.GetHorizontal() != 0).Subscribe(_ => _delegateInputsMovement?.Invoke());
-            //_delegateInputsMovement += ToMovement;         
+            //_delegateInputsMovement += ToMovement;
             //_delegateInputsMovement += ToRotate;
             //Observable.EveryUpdate().Where(_ => _inputs.GetJump() != 0).Subscribe(_ => _delegateInputsJump?.Invoke());
-       
+
         }
         public virtual void Update()
         {

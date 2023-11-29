@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 namespace AL.InGame.Character
 {
+    using AL.Tools.Interface;
     using AL.Tools.Template;
-    public class PlayerCharacter : CharacterTamplate
+    public class PlayerCharacter : CharacterTamplate, ILife
     {
         #region Attributes
 
         private Rigidbody rb;
         public SpriteRenderer _spritePlayer;
+        public float _life;
+        public float _currentLife { get => _life; set => _life = value; }
         #endregion
 
         #region UnityCalls
@@ -47,6 +50,24 @@ namespace AL.InGame.Character
             else
             {
                 _spritePlayer.flipX = true;
+            }
+        }
+
+        public void DamageLife(float _damge)
+        {
+            _life -= _damge;
+            if (_life < 0)
+            {
+                _life = 0;
+            }
+        }
+
+        public void HealLife(float _healing)
+        {
+             _life += _healing;
+            if (_life > 100)
+            {
+                _life = 1000;
             }
         }
 

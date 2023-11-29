@@ -1,5 +1,8 @@
+using AL.Tools.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,7 +28,7 @@ namespace AlexanderCA.Tools.Generics
             {
                 this.prefab = prefab;
 
-                for ( int i = 0 ; i < initialSize ; i++ )
+                for (int i = 0 ; i < initialSize ; i++)
                 {
                     AddObjectToPool();
                 }
@@ -40,7 +43,7 @@ namespace AlexanderCA.Tools.Generics
 
             public T GetObject()
             {
-                if ( availableObjects.Count == 0 )
+                if (availableObjects.Count == 0)
                 {
                     AddObjectToPool();
                 }
@@ -76,7 +79,7 @@ namespace AlexanderCA.Tools.Generics
             {
                 this.prefabs = prefabs;
 
-                for ( int i = 0 ; i < initialSize ; i++ )
+                for (int i = 0 ; i < initialSize ; i++)
                 {
                     AddObjectToPool();
                 }
@@ -91,7 +94,7 @@ namespace AlexanderCA.Tools.Generics
 
             public T GetObject()
             {
-                if ( availableObjects.Count == 0 )
+                if (availableObjects.Count == 0)
                 {
                     AddObjectToPool();
                 }
@@ -127,13 +130,12 @@ namespace AlexanderCA.Tools.Generics
             {
                 get
                 {
-                    if ( _instance == null )
+                    if (_instance == null)
                     {
                         _instance = FindObjectOfType<T>();
-                        if ( _instance == null )
+                        if (_instance == null)
                         {
-
-                            if ( _createGameObjectIfMissing )
+                            if (_createGameObjectIfMissing)
                             {
                                 GameObject go = new GameObject(typeof(T).Name);
                                 _instance = go.AddComponent<T>();
@@ -147,7 +149,7 @@ namespace AlexanderCA.Tools.Generics
             }
             public virtual void DontDestroy()
             {
-                if ( _instance == null )
+                if (_instance == null)
                 {
                     _instance = this as T;
                     DontDestroyOnLoad(gameObject);
@@ -167,9 +169,9 @@ namespace AlexanderCA.Tools.Generics
         {
             int result = value + operation;
             result = Mathf.Clamp(result , minValue , maxValue);
-            if ( result <= minValue )
+            if (result <= minValue)
                 OnClampExceded?.Invoke();
-            if ( result >= maxValue )
+            if (result >= maxValue)
                 OnClampExceded?.Invoke();
             return result;
         }
@@ -180,18 +182,18 @@ namespace AlexanderCA.Tools.Generics
         public static bool IsOverlap3D(LayerMask _mask , GameObject _whoCheckObject , TypeOverlap _typeOverlap)
         {
             bool  _checkGround = false;
-            switch ( _typeOverlap )
+            switch (_typeOverlap)
             {
                 case TypeOverlap.none:
                     _checkGround = false;
                     break;
                 case TypeOverlap.box:
-                    _checkGround = ( Physics.OverlapBox(_whoCheckObject.transform.position , _whoCheckObject.transform.localScale , Quaternion.identity , _mask) ) != null;
+                    _checkGround = (Physics.OverlapBox(_whoCheckObject.transform.position , _whoCheckObject.transform.localScale , Quaternion.identity , _mask)) != null;
                     break;
                 case TypeOverlap.sphere:
-                    Collider[] hitColliders = Physics.OverlapSphere(_whoCheckObject.transform.position, 20f, LayerMask.NameToLayer("Player")); foreach ( Collider collider in hitColliders )
+                    Collider[] hitColliders = Physics.OverlapSphere(_whoCheckObject.transform.position, 20f, LayerMask.NameToLayer("Player")); foreach (Collider collider in hitColliders)
                     {
-                        if ( collider.gameObject.layer == LayerMask.NameToLayer("Player") )
+                        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                         {
 
                             _checkGround = true;
@@ -250,16 +252,35 @@ namespace AlexanderCA.Tools.Generics
 
         }
         #endregion
-        public static void SetNewAnimation<TEnum>(TEnum _nameAnimationPlay , Animator _animator) where TEnum : Enum
+        public static void SetNewAnimation<Animations>(Animations _nameAnimationPlay , Animator _animator = null , string _stringBool = "" , bool _boolState = false) where Animations : Enum
         {
-            if ( !_animator.GetBool(_nameAnimationPlay.ToString()) )
+            if (_animator.runtimeAnimatorController != null)
             {
-                _animator.SetBool(_nameAnimationPlay.ToString() , true);
-                for ( int i = 0 ; i < _animator.parameterCount ; i++ )
+                if (_nameAnimationPlay.ToString() != "none" && !_animator.GetBool(_nameAnimationPlay.ToString()))
                 {
-                    if ( _animator.GetParameter(i).name != _nameAnimationPlay.ToString() )
+                    _animator.SetBool(_nameAnimationPlay.ToString() , true);
+                    for (int i = 0 ; i < _animator.parameterCount ; i++)
                     {
-                        _animator.SetBool(_animator.GetParameter(i).name , false);
+                        if (_animator.GetParameter(i).name != _nameAnimationPlay.ToString())
+                        {
+                            _animator.SetBool(_animator.GetParameter(i).name , false);
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(_stringBool))
+                {
+
+                    bool parameterExists = _animator.parameters.Any(parameter => parameter.type == AnimatorControllerParameterType.Bool && parameter.name == _stringBool);
+                    if (parameterExists)
+                    {
+                        for (int i = 0 ; i < _animator.parameterCount ; i++)
+                        {
+                            if (_animator.GetParameter(i).name.Trim() != _stringBool.Trim())
+                            {
+                                _animator.SetBool(_animator.GetParameter(i).name , false);
+                            }
+                        }
+                        _animator.SetBool(_stringBool.ToString() , _boolState);
                     }
                 }
             }

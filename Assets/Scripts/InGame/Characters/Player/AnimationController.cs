@@ -6,7 +6,10 @@ using UnityEngine.UI;
 namespace AL.InGame.Character
 {
     using AL.Tools.Template;
+    using AL.Tools;
     using System.Linq;
+    using AlexanderCA.Tools.Generics;
+    using AL.Tools.Enums;
 
     public class AnimationController : AnimationTemplate
     {
@@ -34,7 +37,8 @@ namespace AL.InGame.Character
         #region privat custom method
         protected override void ToAnimationJumping()
         {
-            ToAnimation("Jumping" , true);
+            ToolsAlex.SetNewAnimation(Animations.none , _animator: _animator, _stringBool: "Jumping" , _boolState :true);
+
         }
 
         protected override void ToAnimationMovement()
@@ -55,9 +59,10 @@ namespace AL.InGame.Character
                 bool parameterExists = _animator.parameters.Any(parameter => parameter.type == AnimatorControllerParameterType.Bool && parameter.name == _stringBool);
                 if ( parameterExists )
                 {
-                    for ( int i = 0 ; i < _animator.parameterCount ; i++ )
+                    foreach ( var parameter in _animator.parameters) 
                     {
-                        if ( _animator.GetParameter(i).name.Trim() != _stringBool.Trim() )
+                        int  i = _animator.parameters.ToList().IndexOf( parameter );
+                        if ( string.Compare(_animator.GetParameter(i).name.Trim() ,_stringBool.Trim()) == 0)
                         {
                             _animator.SetBool(_animator.GetParameter(i).name , false);
                         }

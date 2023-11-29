@@ -1,10 +1,8 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Al.Tools.Edits
 {
-    using AL.InGame.Character;
     using AL.InGame.Inputs;
     using System.IO;
 

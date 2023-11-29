@@ -38,13 +38,13 @@ namespace Al.Tools.Edits
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginVertical();
-            if ( GUILayout.Button("Open Scritp: PlayerAnimationEdit") )
+            if ( GUILayout.Button("Open Scritp: AnimationController") )
             {
                 MonoScript script1 = MonoScript.FromMonoBehaviour(target as MonoBehaviour);
                 AssetDatabase.OpenAsset(script1);
 
             }
-            if ( GUILayout.Button("Open Scritp: PlayerInputsEdit") )
+            if ( GUILayout.Button("Open Scritp: PlayerAnimationEdit") )
             {
 
                 string editorScriptPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this));

@@ -10,5 +10,12 @@ namespace AL.Tools.Enums
         ButtonJump,
         ButtonMoveRight,
         ButtonMoveLeft
+    }    
+    
+    public enum Animations
+    {
+        none,
+        movement,
+        jump
     }
 }

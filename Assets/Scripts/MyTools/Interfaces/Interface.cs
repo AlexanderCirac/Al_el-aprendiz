@@ -10,6 +10,12 @@ namespace AL.Tools.Interface
         public float GetJump();
         public float GetHorizontal();
         public float GetVertical();
+    }    
+    public interface ILife
+    {
+        public float _currentLife { get; set; }
+        public void DamageLife(float _damge);
+        public void HealLife(float _healing);
     }
 
     public interface IButtonHandle
