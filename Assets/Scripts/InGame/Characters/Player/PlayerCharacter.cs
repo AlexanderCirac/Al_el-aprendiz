@@ -23,16 +23,19 @@ namespace AL.InGame.Character
             rb = GetComponent<Rigidbody>();
 
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out IObstactle _obstacle ))
+            {
+                _obstacle.ToActionObstacle(this.gameObject);
+            }
+        }
         #endregion
 
 
         #region privat custom method
 
 
-        public override void Update()
-        {
-            base.Update();
-        }
         protected override void ToJumping()
         {
             rb.AddForce(Vector3.up * _inputs.GetJump() , ForceMode.Impulse);

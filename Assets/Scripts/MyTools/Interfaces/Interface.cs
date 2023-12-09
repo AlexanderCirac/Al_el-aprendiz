@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace AL.Tools.Interface
 {
+    using AL.Tools.Enums;
+    public interface IObstactle
+    {
 
+        public eObstacle TypeObstactle { get; set; }
+        public void ToActionObstacle(GameObject getGameObject);
+
+    }
     public interface IInputs
     {
         public float GetJump();
         public float GetHorizontal();
         public float GetVertical();
-    }    
+    }
     public interface ILife
     {
         public float _currentLife { get; set; }

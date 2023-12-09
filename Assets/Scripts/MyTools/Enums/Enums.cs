@@ -10,6 +10,13 @@ namespace AL.Tools.Enums
         ButtonJump,
         ButtonMoveRight,
         ButtonMoveLeft
+    }      
+    public enum eObstacle
+    {   
+        BlockDamage,
+        BlockFlipFlop,
+        BlockGravityEnabled,
+        BlockGravityDesabled
     }    
     
     public enum Animations
